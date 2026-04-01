@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getCurrentUser } from '@/lib/auth-utils';
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
-import path from 'path';
+import { pool } from '@/lib/db';
 
 export async function GET() {
     try {
@@ -11,19 +9,12 @@ export async function GET() {
             return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
         }
 
-        const db = await open({
-            filename: path.join(process.cwd(), 'database.sqlite'),
-            driver: sqlite3.Database
-        });
-
-        const tables = await db.all(
-            "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
+        const result = await pool.query(
+            "SELECT tablename as name FROM pg_catalog.pg_tables WHERE schemaname = 'public' ORDER BY tablename"
         );
 
-        await db.close();
-
         return NextResponse.json({ 
-            tables: tables.map(t => t.name)
+            tables: result.rows.map(t => t.name)
         });
     } catch (error) {
         console.error('Error fetching tables:', error);

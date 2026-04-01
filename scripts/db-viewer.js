@@ -1,9 +1,10 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+require('dotenv').config();
+const { Client } = require('pg');
 const readline = require('readline');
 
-const dbPath = path.join(process.cwd(), 'database.sqlite');
-const db = new sqlite3.Database(dbPath);
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+});
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -11,8 +12,19 @@ const rl = readline.createInterface({
 });
 
 console.log('╔════════════════════════════════════════╗');
-console.log('║   SQLite Database Viewer - Cartizo     ║');
+console.log('║   Supabase Database Viewer - Cartizo   ║');
 console.log('╚════════════════════════════════════════╝\n');
+
+async function start() {
+  try {
+    await client.connect();
+    console.log('✅ Connected to Supabase (PostgreSQL)\n');
+    showMenu();
+  } catch (err) {
+    console.error('❌ Connection error:', err);
+    process.exit(1);
+  }
+}
 
 function showMenu() {
   console.log('\n📋 Available Commands:');
@@ -31,80 +43,69 @@ function showMenu() {
   });
 }
 
-function handleCommand(cmd) {
-  switch(cmd) {
-    case '1':
-      showTables();
-      break;
-    case '2':
-      viewTable('users', 'SELECT id, name, email, role, createdAt FROM users');
-      break;
-    case '3':
-      viewTable('orders', 'SELECT id, userId, orderNumber, total, status, createdAt FROM orders ORDER BY createdAt DESC LIMIT 20');
-      break;
-    case '4':
-      viewTable('products', 'SELECT id, name, brand, category, price, discount, inStock, stock FROM products LIMIT 20');
-      break;
-    case '5':
-      viewTable('reviews', 'SELECT r.id, r.userId, r.productId, r.rating, r.comment, r.createdAt FROM reviews r LIMIT 20');
-      break;
-    case '6':
-      viewTable('wishlist', 'SELECT * FROM wishlist LIMIT 20');
-      break;
-    case '7':
-      viewTable('addresses', 'SELECT * FROM addresses LIMIT 20');
-      break;
-    case '8':
-      rl.question('Enter SQL query: ', (query) => {
-        runCustomQuery(query);
-      });
-      return;
-    case '9':
-      console.log('\n👋 Goodbye!\n');
-      db.close();
-      rl.close();
-      return;
-    default:
-      console.log('❌ Invalid command');
-      showMenu();
+async function handleCommand(cmd) {
+  try {
+    switch(cmd) {
+      case '1':
+        await showTables();
+        break;
+      case '2':
+        await viewTable('users', 'SELECT "id", "name", "email", "role", "createdAt" FROM users');
+        break;
+      case '3':
+        await viewTable('orders', 'SELECT "id", "userId", "orderNumber", "total", "status", "createdAt" FROM orders ORDER BY "createdAt" DESC LIMIT 20');
+        break;
+      case '4':
+        await viewTable('products', 'SELECT "id", "name", "brand", "category", "price", "discount", "inStock", "stock" FROM products LIMIT 20');
+        break;
+      case '5':
+        await viewTable('reviews', 'SELECT "id", "userId", "productId", "rating", "comment", "createdAt" FROM reviews LIMIT 20');
+        break;
+      case '6':
+        await viewTable('wishlist', 'SELECT * FROM wishlist LIMIT 20');
+        break;
+      case '7':
+        await viewTable('addresses', 'SELECT * FROM addresses LIMIT 20');
+        break;
+      case '8':
+        rl.question('Enter SQL query: ', async (query) => {
+          await runCustomQuery(query);
+          showMenu();
+        });
+        return;
+      case '9':
+        console.log('\n👋 Goodbye!\n');
+        await client.end();
+        rl.close();
+        return;
+      default:
+        console.log('❌ Invalid command');
+        showMenu();
+    }
+  } catch (err) {
+    console.error('❌ Error:', err.message);
+    showMenu();
   }
 }
 
-function showTables() {
-  db.all("SELECT name FROM sqlite_master WHERE type='table'", [], (err, tables) => {
-    if (err) {
-      console.error('❌ Error:', err);
-    } else {
-      console.log('\n📊 Tables in database:');
-      tables.forEach(t => console.log(`  - ${t.name}`));
-    }
-    showMenu();
-  });
+async function showTables() {
+  const res = await client.query("SELECT tablename as name FROM pg_catalog.pg_tables WHERE schemaname = 'public'");
+  console.log('\n📊 Tables in database:');
+  res.rows.forEach(t => console.log(`  - ${t.name}`));
+  showMenu();
 }
 
-function viewTable(tableName, query) {
-  db.all(query, [], (err, rows) => {
-    if (err) {
-      console.error('❌ Error:', err);
-    } else {
-      console.log(`\n📋 ${tableName.toUpperCase()} (${rows.length} rows):`);
-      console.table(rows);
-    }
-    showMenu();
-  });
+async function viewTable(tableName, query) {
+  const res = await client.query(query);
+  console.log(`\n📋 ${tableName.toUpperCase()} (${res.rows.length} rows):`);
+  console.table(res.rows);
+  showMenu();
 }
 
-function runCustomQuery(query) {
-  db.all(query, [], (err, rows) => {
-    if (err) {
-      console.error('❌ Error:', err);
-    } else {
-      console.log(`\n✅ Query result (${rows.length} rows):`);
-      console.table(rows);
-    }
-    showMenu();
-  });
+async function runCustomQuery(query) {
+  const res = await client.query(query);
+  console.log(`\n✅ Query result (${res.rows.length} rows):`);
+  console.table(res.rows);
 }
 
-// Start the interactive menu
-showMenu();
+start();

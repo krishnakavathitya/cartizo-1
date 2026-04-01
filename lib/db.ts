@@ -1,239 +1,85 @@
-import path from 'path';
-import sqlite3 from 'sqlite3';
-import { open, Database } from 'sqlite';
+import { Pool } from 'pg';
 
-const DB_PATH = path.join(process.cwd(), 'database.sqlite');
-
-let dbPromise: Promise<Database> | null = null;
-
-async function getDb() {
-  if (!dbPromise) {
-    dbPromise = open({
-      filename: DB_PATH,
-      driver: sqlite3.Database
-    });
-
-    const db = await dbPromise;
-
-    // Initialize Tables
-    await db.exec(`
-      CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL,
-        role TEXT NOT NULL,
-        avatar TEXT,
-        phone TEXT,
-        createdAt TEXT DEFAULT CURRENT_TIMESTAMP
-      );
-
-      CREATE TABLE IF NOT EXISTS products (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        slug TEXT UNIQUE NOT NULL,
-        brand TEXT NOT NULL,
-        category TEXT NOT NULL,
-        price REAL NOT NULL,
-        discount REAL DEFAULT 0,
-        description TEXT,
-        specifications TEXT,
-        image TEXT,
-        averageRating REAL DEFAULT 0,
-        reviewCount INTEGER DEFAULT 0,
-        inStock INTEGER DEFAULT 1,
-        stock INTEGER DEFAULT 0,
-        createdAt TEXT DEFAULT CURRENT_TIMESTAMP
-      );
-
-      CREATE TABLE IF NOT EXISTS addresses (
-        id TEXT PRIMARY KEY,
-        userId INTEGER NOT NULL,
-        name TEXT,
-        phone TEXT,
-        street TEXT,
-        city TEXT,
-        state TEXT,
-        zip TEXT,
-        country TEXT,
-        type TEXT DEFAULT 'Home',
-        isDefault INTEGER DEFAULT 0,
-        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (userId) REFERENCES users(id)
-      );
-
-      CREATE TABLE IF NOT EXISTS orders (
-        id TEXT PRIMARY KEY,
-        userId INTEGER NOT NULL,
-        orderNumber TEXT UNIQUE NOT NULL,
-        total REAL NOT NULL,
-        subtotal REAL,
-        tax REAL,
-        shipping REAL,
-        status TEXT NOT NULL,
-        paymentMethod TEXT,
-        shippingAddressId TEXT,
-        items TEXT NOT NULL, -- JSON string
-        statusHistory TEXT NOT NULL, -- JSON string
-        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (userId) REFERENCES users(id)
-      );
-
-      CREATE TABLE IF NOT EXISTS wishlist (
-        id TEXT PRIMARY KEY,
-        userId INTEGER NOT NULL,
-        productId INTEGER NOT NULL,
-        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (userId) REFERENCES users(id),
-        FOREIGN KEY (productId) REFERENCES products(id)
-      );
-
-      CREATE TABLE IF NOT EXISTS carts (
-        userId INTEGER PRIMARY KEY,
-        items TEXT NOT NULL, -- JSON string
-        updatedAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (userId) REFERENCES users(id)
-      );
-
-      CREATE TABLE IF NOT EXISTS reviews (
-        id TEXT PRIMARY KEY,
-        userId INTEGER NOT NULL,
-        productId INTEGER NOT NULL,
-        rating INTEGER NOT NULL,
-        comment TEXT,
-        createdAt TEXT DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (userId) REFERENCES users(id),
-        FOREIGN KEY (productId) REFERENCES products(id)
-      );
-
-      CREATE TABLE IF NOT EXISTS categories (
-        name TEXT PRIMARY KEY
-      );
-    `);
-
-    // Table migrations
-    try {
-      // 1. Ensure addresses has 'zip' (might have been 'postalCode' from a previous migration)
-      const tableInfo = await db.all("PRAGMA table_info(addresses)");
-      const hasZip = tableInfo.some(r => r.name === 'zip');
-      const hasPostalCode = tableInfo.some(r => r.name === 'postalCode');
-      const hasType = tableInfo.some(r => r.name === 'type');
-
-      if (!hasZip && hasPostalCode) {
-        await db.exec('ALTER TABLE addresses RENAME COLUMN postalCode TO zip');
-        console.log('Migrated addresses table: postalCode -> zip');
-      }
-
-      if (!hasType) {
-        await db.exec("ALTER TABLE addresses ADD COLUMN type TEXT DEFAULT 'Home'");
-        console.log('Migrated addresses table: added type column');
-      }
-    } catch (e) {
-      console.error('Migration error (addresses):', e);
-    }
-
-    try {
-      // 2. Ensure orders has all required columns
-      await db.exec('ALTER TABLE orders ADD COLUMN subtotal REAL').catch(() => { });
-      await db.exec('ALTER TABLE orders ADD COLUMN tax REAL').catch(() => { });
-      await db.exec('ALTER TABLE orders ADD COLUMN shipping REAL').catch(() => { });
-      await db.exec('ALTER TABLE orders ADD COLUMN paymentMethod TEXT').catch(() => { });
-      await db.exec('ALTER TABLE orders ADD COLUMN shippingAddressId TEXT').catch(() => { });
-      console.log('Migrated orders table with new columns if missing');
-    } catch (e) {
-      // Ignore if already existing
-    }
-
-    console.log('Database initialized successfully');
-    return db;
-  }
-  return dbPromise;
-}
+export const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
 export const getDatabase = () => {
   return {
     users: {
       getAll: async () => {
-        const db = await getDb();
-        return db.all('SELECT * FROM users');
+        const result = await pool.query('SELECT * FROM users');
+        return result.rows;
       },
       getById: async (id: number) => {
-        const db = await getDb();
-        return db.get('SELECT * FROM users WHERE id = ?', id);
+        const result = await pool.query('SELECT * FROM users WHERE "id" = $1', [id]);
+        return result.rows[0];
       },
       getByEmail: async (email: string) => {
-        const db = await getDb();
-        return db.get('SELECT * FROM users WHERE email = ?', email);
+        const result = await pool.query('SELECT * FROM users WHERE "email" = $1', [email]);
+        return result.rows[0];
       },
       create: async (user: any) => {
-        const db = await getDb();
-        const result = await db.run(
-          'INSERT INTO users (name, email, password, role, avatar, phone, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        const result = await pool.query(
+          'INSERT INTO users ("name", "email", "password", "role", "avatar", "phone", "createdAt") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"',
           [user.name, user.email, user.password, user.role, user.avatar, user.phone, new Date().toISOString()]
         );
-        return { ...user, id: result.lastID };
+        return { ...user, id: result.rows[0].id };
       },
       update: async (id: number, updates: any) => {
-        const db = await getDb();
         const keys = Object.keys(updates);
         const values = Object.values(updates);
-        const setClause = keys.map(k => `${k} = ?`).join(', ');
-        await db.run(`UPDATE users SET ${setClause} WHERE id = ?`, [...values, id]);
-        return db.get('SELECT * FROM users WHERE id = ?', id);
+        const setClause = keys.map((k, i) => `"${k}" = $${i + 1}`).join(', ');
+        await pool.query(`UPDATE users SET ${setClause} WHERE "id" = $${keys.length + 1}`, [...values, id]);
+        const result = await pool.query('SELECT * FROM users WHERE "id" = $1', [id]);
+        return result.rows[0];
       },
       delete: async (id: number) => {
-        const db = await getDb();
-        const result = await db.run('DELETE FROM users WHERE id = ?', id);
-        return (result.changes ?? 0) > 0;
+        const result = await pool.query('DELETE FROM users WHERE "id" = $1', [id]);
+        return (result.rowCount ?? 0) > 0;
       }
     },
     products: {
       getAll: async () => {
-        const db = await getDb();
-        const products = await db.all('SELECT * FROM products');
-        return products.map(p => ({ ...p, inStock: !!p.inStock }));
+        const result = await pool.query('SELECT * FROM products');
+        return result.rows.map(p => ({ ...p, inStock: !!p.inStock }));
       },
       getById: async (id: number) => {
-        const db = await getDb();
-        const p = await db.get('SELECT * FROM products WHERE id = ?', id);
+        const result = await pool.query('SELECT * FROM products WHERE "id" = $1', [id]);
+        const p = result.rows[0];
         return p ? { ...p, inStock: !!p.inStock } : undefined;
       },
       getBySlug: async (slug: string) => {
-        const db = await getDb();
-        const p = await db.get('SELECT * FROM products WHERE slug = ?', slug);
+        const result = await pool.query('SELECT * FROM products WHERE "slug" = $1', [slug]);
+        const p = result.rows[0];
         return p ? { ...p, inStock: !!p.inStock } : undefined;
       },
       create: async (product: any) => {
-        const db = await getDb();
-        const result = await db.run(
-          'INSERT INTO products (name, slug, brand, category, price, discount, description, specifications, image, averageRating, reviewCount, inStock, stock, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-          [product.name, product.slug, product.brand, product.category, product.price, product.discount, product.description, product.specifications, product.image, product.averageRating || 0, product.reviewCount || 0, product.inStock ? 1 : 0, product.stock, new Date().toISOString()]
+        const result = await pool.query(
+          'INSERT INTO products ("name", "slug", "brand", "category", "price", "discount", "description", "specifications", "image", "averageRating", "reviewCount", "inStock", "stock", "createdAt") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"',
+          [product.name, product.slug, product.brand, product.category, product.price, product.discount, product.description, product.specifications, product.image, product.averageRating || 0, product.reviewCount || 0, !!product.inStock, product.stock, new Date().toISOString()]
         );
-        return { ...product, id: result.lastID };
+        return { ...product, id: result.rows[0].id };
       },
       update: async (id: number, updates: any) => {
-        const db = await getDb();
-        if (updates.inStock !== undefined) updates.inStock = updates.inStock ? 1 : 0;
+        if (updates.inStock !== undefined) updates.inStock = !!updates.inStock;
         const keys = Object.keys(updates);
         const values = Object.values(updates);
-        const setClause = keys.map(k => `${k} = ?`).join(', ');
-        await db.run(`UPDATE products SET ${setClause} WHERE id = ?`, [...values, id]);
-        const p = await db.get('SELECT * FROM products WHERE id = ?', id);
+        const setClause = keys.map((k, i) => `"${k}" = $${i + 1}`).join(', ');
+        await pool.query(`UPDATE products SET ${setClause} WHERE "id" = $${keys.length + 1}`, [...values, id]);
+        const result = await pool.query('SELECT * FROM products WHERE "id" = $1', [id]);
+        const p = result.rows[0];
         return p ? { ...p, inStock: !!p.inStock } : undefined;
       },
       delete: async (id: number) => {
-        const db = await getDb();
-        const result = await db.run('DELETE FROM products WHERE id = ?', id);
-        return (result.changes ?? 0) > 0;
+        const result = await pool.query('DELETE FROM products WHERE "id" = $1', [id]);
+        return (result.rowCount ?? 0) > 0;
       }
     },
     addresses: {
       getAll: async (userId: number) => {
-        const db = await getDb();
-        const addrs = await db.all('SELECT * FROM addresses WHERE userId = ?', userId);
-        return addrs.map(a => ({
+        const result = await pool.query('SELECT * FROM addresses WHERE "userId" = $1', [userId]);
+        return result.rows.map(a => ({
           ...a,
           postalCode: a.zip,
           type: a.type || 'Home',
@@ -241,8 +87,8 @@ export const getDatabase = () => {
         }));
       },
       getById: async (id: string) => {
-        const db = await getDb();
-        const a = await db.get('SELECT * FROM addresses WHERE id = ?', id);
+        const result = await pool.query('SELECT * FROM addresses WHERE "id" = $1', [id]);
+        const a = result.rows[0];
         return a ? {
           ...a,
           postalCode: a.zip,
@@ -251,16 +97,16 @@ export const getDatabase = () => {
         } : undefined;
       },
       create: async (userId: number, address: any) => {
-        const db = await getDb();
         const id = `addr-${Date.now()}`;
         if (address.isDefault) {
-          await db.run('UPDATE addresses SET isDefault = 0 WHERE userId = ?', userId);
+          await pool.query('UPDATE addresses SET "isDefault" = false WHERE "userId" = $1', [userId]);
         }
-        await db.run(
-          'INSERT INTO addresses (id, userId, name, phone, street, city, state, zip, country, type, isDefault, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-          [id, userId, address.name, address.phone, address.street, address.city, address.state, address.postalCode || address.zip, address.country, address.type || 'Home', address.isDefault ? 1 : 0, new Date().toISOString(), new Date().toISOString()]
+        await pool.query(
+          'INSERT INTO addresses ("id", "userId", "name", "phone", "street", "city", "state", "zip", "country", "type", "isDefault", "createdAt", "updatedAt") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)',
+          [id, userId, address.name, address.phone, address.street, address.city, address.state, address.postalCode || address.zip, address.country, address.type || 'Home', !!address.isDefault, new Date().toISOString(), new Date().toISOString()]
         );
-        const a = await db.get('SELECT * FROM addresses WHERE id = ?', id);
+        const result = await pool.query('SELECT * FROM addresses WHERE "id" = $1', [id]);
+        const a = result.rows[0];
         return a ? {
           ...a,
           postalCode: a.zip,
@@ -268,21 +114,21 @@ export const getDatabase = () => {
         } : null;
       },
       update: async (userId: number, id: string, updates: any) => {
-        const db = await getDb();
         if (updates.isDefault) {
-          await db.run('UPDATE addresses SET isDefault = 0 WHERE userId = ?', userId);
+          await pool.query('UPDATE addresses SET "isDefault" = false WHERE "userId" = $1', [userId]);
         }
         if (updates.postalCode) {
           updates.zip = updates.postalCode;
           delete updates.postalCode;
         }
-        if (updates.isDefault !== undefined) updates.isDefault = updates.isDefault ? 1 : 0;
+        if (updates.isDefault !== undefined) updates.isDefault = !!updates.isDefault;
         updates.updatedAt = new Date().toISOString();
         const keys = Object.keys(updates);
         const values = Object.values(updates);
-        const setClause = keys.map(k => `${k} = ?`).join(', ');
-        await db.run(`UPDATE addresses SET ${setClause} WHERE id = ? AND userId = ?`, [...values, id, userId]);
-        const a = await db.get('SELECT * FROM addresses WHERE id = ?', id);
+        const setClause = keys.map((k, i) => `"${k}" = $${i + 1}`).join(', ');
+        await pool.query(`UPDATE addresses SET ${setClause} WHERE "id" = $${keys.length + 1} AND "userId" = $${keys.length + 2}`, [...values, id, userId]);
+        const result = await pool.query('SELECT * FROM addresses WHERE "id" = $1', [id]);
+        const a = result.rows[0];
         return a ? {
           ...a,
           postalCode: a.zip,
@@ -291,15 +137,14 @@ export const getDatabase = () => {
         } : null;
       },
       delete: async (userId: number, id: string) => {
-        const db = await getDb();
-        const result = await db.run('DELETE FROM addresses WHERE id = ? AND userId = ?', [id, userId]);
-        return (result.changes ?? 0) > 0;
+        const result = await pool.query('DELETE FROM addresses WHERE "id" = $1 AND "userId" = $2', [id, userId]);
+        return (result.rowCount ?? 0) > 0;
       },
       setDefault: async (userId: number, id: string) => {
-        const db = await getDb();
-        await db.run('UPDATE addresses SET isDefault = 0 WHERE userId = ?', userId);
-        await db.run('UPDATE addresses SET isDefault = 1 WHERE id = ? AND userId = ?', [id, userId]);
-        const a = await db.get('SELECT * FROM addresses WHERE id = ?', id);
+        await pool.query('UPDATE addresses SET "isDefault" = false WHERE "userId" = $1', [userId]);
+        await pool.query('UPDATE addresses SET "isDefault" = true WHERE "id" = $1 AND "userId" = $2', [id, userId]);
+        const result = await pool.query('SELECT * FROM addresses WHERE "id" = $1', [id]);
+        const a = result.rows[0];
         return a ? {
           ...a,
           postalCode: a.zip,
@@ -310,36 +155,33 @@ export const getDatabase = () => {
     },
     orders: {
       getAll: async (userId: number) => {
-        const db = await getDb();
-        const orders = await db.all('SELECT * FROM orders WHERE userId = ?', userId);
-        return orders.map(o => ({ ...o, items: JSON.parse(o.items), statusHistory: JSON.parse(o.statusHistory) }));
+        const result = await pool.query('SELECT * FROM orders WHERE "userId" = $1', [userId]);
+        return result.rows.map(o => ({ ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items, statusHistory: typeof o.statusHistory === 'string' ? JSON.parse(o.statusHistory) : o.statusHistory }));
       },
       getAllAdmin: async () => {
-        const db = await getDb();
-        const orders = await db.all('SELECT * FROM orders');
-        return orders.map(o => ({ ...o, items: JSON.parse(o.items), statusHistory: JSON.parse(o.statusHistory) }));
+        const result = await pool.query('SELECT * FROM orders');
+        return result.rows.map(o => ({ ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items, statusHistory: typeof o.statusHistory === 'string' ? JSON.parse(o.statusHistory) : o.statusHistory }));
       },
       getById: async (userId: number, id: string) => {
-        const db = await getDb();
-        const o = await db.get('SELECT * FROM orders WHERE id = ? AND userId = ?', [id, userId]);
-        return o ? { ...o, items: JSON.parse(o.items), statusHistory: JSON.parse(o.statusHistory) } : undefined;
+        const result = await pool.query('SELECT * FROM orders WHERE "id" = $1 AND "userId" = $2', [id, userId]);
+        const o = result.rows[0];
+        return o ? { ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items, statusHistory: typeof o.statusHistory === 'string' ? JSON.parse(o.statusHistory) : o.statusHistory } : undefined;
       },
       getByOrderNumber: async (orderNumber: string) => {
-        const db = await getDb();
-        const o = await db.get('SELECT * FROM orders WHERE orderNumber = ?', orderNumber);
-        return o ? { ...o, items: JSON.parse(o.items), statusHistory: JSON.parse(o.statusHistory) } : undefined;
+        const result = await pool.query('SELECT * FROM orders WHERE "orderNumber" = $1', [orderNumber]);
+        const o = result.rows[0];
+        return o ? { ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items, statusHistory: typeof o.statusHistory === 'string' ? JSON.parse(o.statusHistory) : o.statusHistory } : undefined;
       },
       create: async (userId: number, order: any) => {
-        const db = await getDb();
         const id = `ord-${Date.now()}`;
-        const statusHistory = JSON.stringify([{
+        const statusHistory = [{
           id: `sh-${Date.now()}`,
           status: order.status || 'PENDING',
           createdAt: new Date().toISOString(),
           note: 'Order initiated via decentralized gateway'
-        }]);
-        await db.run(
-          'INSERT INTO orders (id, userId, orderNumber, total, subtotal, tax, shipping, status, paymentMethod, shippingAddressId, items, statusHistory, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        }];
+        await pool.query(
+          'INSERT INTO orders ("id", "userId", "orderNumber", "total", "subtotal", "tax", "shipping", "status", "paymentMethod", "shippingAddressId", "items", "statusHistory", "createdAt", "updatedAt") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)',
           [
             id,
             userId,
@@ -352,155 +194,152 @@ export const getDatabase = () => {
             order.paymentMethod,
             order.shippingAddressId,
             JSON.stringify(order.items),
-            statusHistory,
+            JSON.stringify(statusHistory),
             new Date().toISOString(),
             new Date().toISOString()
           ]
         );
-        const o = await db.get('SELECT * FROM orders WHERE id = ?', id);
-        return o ? { ...o, items: JSON.parse(o.items), statusHistory: JSON.parse(o.statusHistory) } : null;
+        const result = await pool.query('SELECT * FROM orders WHERE "id" = $1', [id]);
+        const o = result.rows[0];
+        return o ? { ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items, statusHistory: typeof o.statusHistory === 'string' ? JSON.parse(o.statusHistory) : o.statusHistory } : null;
       },
       updateStatus: async (userId: number, id: string, status: string) => {
-        const db = await getDb();
-        const o = await db.get('SELECT * FROM orders WHERE id = ? AND userId = ?', [id, userId]);
+        const result = await pool.query('SELECT * FROM orders WHERE "id" = $1 AND "userId" = $2', [id, userId]);
+        const o = result.rows[0];
         if (!o) return null;
-        const history = JSON.parse(o.statusHistory);
+        const history = typeof o.statusHistory === 'string' ? JSON.parse(o.statusHistory) : o.statusHistory;
         history.push({
           id: `sh-${Date.now()}`,
           status,
           createdAt: new Date().toISOString(),
           note: `Status updated to ${status}`
         });
-        await db.run(
-          'UPDATE orders SET status = ?, statusHistory = ?, updatedAt = ? WHERE id = ?',
+        await pool.query(
+          'UPDATE orders SET "status" = $1, "statusHistory" = $2, "updatedAt" = $3 WHERE "id" = $4',
           [status, JSON.stringify(history), new Date().toISOString(), id]
         );
-        const updated = await db.get('SELECT * FROM orders WHERE id = ?', id);
-        return { ...updated, items: JSON.parse(updated.items), statusHistory: JSON.parse(updated.statusHistory) };
+        const updatedResult = await pool.query('SELECT * FROM orders WHERE "id" = $1', [id]);
+        const updated = updatedResult.rows[0];
+        return { ...updated, items: typeof updated.items === 'string' ? JSON.parse(updated.items) : updated.items, statusHistory: typeof updated.statusHistory === 'string' ? JSON.parse(updated.statusHistory) : updated.statusHistory };
       }
     },
     wishlist: {
       getAll: async (userId: number) => {
-        const db = await getDb();
-        return db.all('SELECT * FROM wishlist WHERE userId = ?', userId);
+        const result = await pool.query('SELECT * FROM wishlist WHERE "userId" = $1', [userId]);
+        return result.rows;
       },
       add: async (userId: number, productId: number) => {
-        const db = await getDb();
-        // Check if already exists
-        const existing = await db.get('SELECT * FROM wishlist WHERE userId = ? AND productId = ?', [userId, productId]);
-        if (existing) return existing;
+        const existingResult = await pool.query('SELECT * FROM wishlist WHERE "userId" = $1 AND "productId" = $2', [userId, productId]);
+        if (existingResult.rows.length > 0) return existingResult.rows[0];
 
         const id = `wish-${Date.now()}`;
-        await db.run(
-          'INSERT INTO wishlist (id, userId, productId, createdAt) VALUES (?, ?, ?, ?)',
+        await pool.query(
+          'INSERT INTO wishlist ("id", "userId", "productId", "createdAt") VALUES ($1, $2, $3, $4)',
           [id, userId, productId, new Date().toISOString()]
         );
-        return db.get('SELECT * FROM wishlist WHERE id = ?', id);
+        const result = await pool.query('SELECT * FROM wishlist WHERE "id" = $1', [id]);
+        return result.rows[0];
       },
       remove: async (userId: number, productId: number) => {
-        const db = await getDb();
-        const result = await db.run('DELETE FROM wishlist WHERE userId = ? AND productId = ?', [userId, productId]);
-        return (result.changes ?? 0) > 0;
+        const result = await pool.query('DELETE FROM wishlist WHERE "userId" = $1 AND "productId" = $2', [userId, productId]);
+        return (result.rowCount ?? 0) > 0;
       },
       isInWishlist: async (userId: number, productId: number) => {
-        const db = await getDb();
-        const item = await db.get('SELECT 1 FROM wishlist WHERE userId = ? AND productId = ?', [userId, productId]);
-        return !!item;
+        const result = await pool.query('SELECT 1 FROM wishlist WHERE "userId" = $1 AND "productId" = $2', [userId, productId]);
+        return result.rows.length > 0;
       }
     },
     carts: {
       get: async (userId: number) => {
-        const db = await getDb();
-        let cart = await db.get('SELECT * FROM carts WHERE userId = ?', userId);
+        const result = await pool.query('SELECT * FROM carts WHERE "userId" = $1', [userId]);
+        let cart = result.rows[0];
         if (!cart) {
-          await db.run('INSERT INTO carts (userId, items, updatedAt) VALUES (?, ?, ?)', [userId, '[]', new Date().toISOString()]);
-          cart = { userId, items: '[]', updatedAt: new Date().toISOString() };
+          await pool.query('INSERT INTO carts ("userId", "items", "updatedAt") VALUES ($1, $2, $3)', [userId, '[]', new Date().toISOString()]);
+          cart = { userId, items: [], updatedAt: new Date().toISOString() };
         }
-        return { ...cart, items: JSON.parse(cart.items) };
+        return { ...cart, items: typeof cart.items === 'string' ? JSON.parse(cart.items) : cart.items };
       },
       update: async (userId: number, items: any[]) => {
-        const db = await getDb();
-        await db.run(
-          'INSERT INTO carts (userId, items, updatedAt) VALUES (?, ?, ?) ON CONFLICT(userId) DO UPDATE SET items = excluded.items, updatedAt = excluded.updatedAt',
+        await pool.query(
+          'INSERT INTO carts ("userId", "items", "updatedAt") VALUES ($1, $2, $3) ON CONFLICT("userId") DO UPDATE SET "items" = EXCLUDED."items", "updatedAt" = EXCLUDED."updatedAt"',
           [userId, JSON.stringify(items), new Date().toISOString()]
         );
         return { userId, items, updatedAt: new Date().toISOString() };
       },
       clear: async (userId: number) => {
-        const db = await getDb();
-        await db.run('DELETE FROM carts WHERE userId = ?', userId);
+        await pool.query('DELETE FROM carts WHERE "userId" = $1', [userId]);
       }
     },
     reviews: {
       getAll: async (productId?: number) => {
-        const db = await getDb();
-        if (productId) return db.all('SELECT * FROM reviews WHERE productId = ?', productId);
-        return db.all('SELECT * FROM reviews');
+        if (productId) {
+          const result = await pool.query('SELECT * FROM reviews WHERE "productId" = $1', [productId]);
+          return result.rows;
+        }
+        const result = await pool.query('SELECT * FROM reviews');
+        return result.rows;
       },
       getAllReviews: async () => {
-        const db = await getDb();
-        return db.all('SELECT * FROM reviews');
+        const result = await pool.query('SELECT * FROM reviews');
+        return result.rows;
       },
       getByUser: async (userId: number) => {
-        const db = await getDb();
-        return db.all('SELECT * FROM reviews WHERE userId = ?', userId);
+        const result = await pool.query('SELECT * FROM reviews WHERE "userId" = $1', [userId]);
+        return result.rows;
       },
       create: async (userId: number, review: any) => {
-        const db = await getDb();
         const id = `rev-${Date.now()}`;
         const createdAt = new Date().toISOString();
-        await db.run(
-          'INSERT INTO reviews (id, userId, productId, rating, comment, createdAt) VALUES (?, ?, ?, ?, ?, ?)',
+        await pool.query(
+          'INSERT INTO reviews ("id", "userId", "productId", "rating", "comment", "createdAt") VALUES ($1, $2, $3, $4, $5, $6)',
           [id, userId, review.productId, review.rating, review.comment, createdAt]
         );
 
-        // Update product rating
-        const revs = await db.all('SELECT rating FROM reviews WHERE productId = ?', review.productId);
+        const revsResult = await pool.query('SELECT "rating" FROM reviews WHERE "productId" = $1', [review.productId]);
+        const revs = revsResult.rows;
         const avg = revs.reduce((s, r) => s + r.rating, 0) / revs.length;
-        await db.run('UPDATE products SET averageRating = ?, reviewCount = ? WHERE id = ?', [avg, revs.length, review.productId]);
+        await pool.query('UPDATE products SET "averageRating" = $1, "reviewCount" = $2 WHERE "id" = $3', [avg, revs.length, review.productId]);
 
         return { ...review, id, userId, createdAt };
       },
       delete: async (reviewId: string) => {
-        const db = await getDb();
-        const r = await db.get('SELECT productId FROM reviews WHERE id = ?', reviewId);
+        const result = await pool.query('SELECT "productId" FROM reviews WHERE "id" = $1', [reviewId]);
+        const r = result.rows[0];
         if (!r) return false;
-        await db.run('DELETE FROM reviews WHERE id = ?', reviewId);
+        await pool.query('DELETE FROM reviews WHERE "id" = $1', [reviewId]);
 
-        const revs = await db.all('SELECT rating FROM reviews WHERE productId = ?', r.productId);
+        const revsResult = await pool.query('SELECT "rating" FROM reviews WHERE "productId" = $1', [r.productId]);
+        const revs = revsResult.rows;
         const avg = revs.length > 0 ? revs.reduce((s, r) => s + r.rating, 0) / revs.length : 0;
-        await db.run('UPDATE products SET averageRating = ?, reviewCount = ? WHERE id = ?', [avg, revs.length, r.productId]);
+        await pool.query('UPDATE products SET "averageRating" = $1, "reviewCount" = $2 WHERE "id" = $3', [avg, revs.length, r.productId]);
         return true;
       }
     },
     categories: {
       getAll: async (): Promise<string[]> => {
-        const db = await getDb();
-        const cats = await db.all('SELECT name FROM categories');
+        const result = await pool.query('SELECT "name" FROM categories');
+        const cats = result.rows;
         if (cats.length === 0) {
-          const products = await db.all('SELECT DISTINCT category FROM products');
+          const productsResult = await pool.query('SELECT DISTINCT "category" FROM products');
+          const products = productsResult.rows;
           const names = products.map(p => p.category).filter(Boolean);
           for (const name of names) {
-            await db.run('INSERT OR IGNORE INTO categories (name) VALUES (?)', name);
+            await pool.query('INSERT INTO categories ("name") VALUES ($1) ON CONFLICT DO NOTHING', [name]);
           }
           return names.sort();
         }
         return cats.map(c => c.name).sort();
       },
       update: async (categories: string[]) => {
-        const db = await getDb();
-        await db.run('DELETE FROM categories');
+        await pool.query('DELETE FROM categories');
         for (const name of categories) {
-          await db.run('INSERT INTO categories (name) VALUES (?)', name);
+          await pool.query('INSERT INTO categories ("name") VALUES ($1)', [name]);
         }
       }
     }
   };
 };
 
-export function closeDatabase() {
-  if (dbPromise) {
-    dbPromise.then(db => db.close());
-    dbPromise = null;
-  }
+export async function closeDatabase() {
+  await pool.end();
 }

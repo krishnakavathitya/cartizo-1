@@ -1,38 +1,36 @@
-const sqlite3 = require('sqlite3');
-const path = require('path');
+require('dotenv').config();
+const { Client } = require('pg');
 
-const dbPath = path.join(process.cwd(), 'database.sqlite');
-
-const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) {
-    console.error('Error opening database:', err);
-    process.exit(1);
-  }
-  console.log('✅ Connected to database');
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
 });
 
-// Check orders
-db.all('SELECT id, userId, orderNumber, total, status, createdAt FROM orders LIMIT 10', [], (err, orders) => {
-  if (err) {
-    console.error('Error fetching orders:', err);
-  } else {
+async function check() {
+  try {
+    await client.connect();
+    console.log('✅ Connected to Supabase (PostgreSQL)');
+
+    // Check orders
+    const resOrders = await client.query('SELECT "id", "userId", "orderNumber", "total", "status", "createdAt" FROM orders LIMIT 10');
+    const orders = resOrders.rows;
     console.log('\n📦 ORDERS:', orders.length);
     orders.forEach(o => {
       console.log(`  - ${o.orderNumber}: userId=${o.userId} (${typeof o.userId}), total=₹${o.total}, status=${o.status}`);
     });
+
+    // Check users
+    const resUsers = await client.query('SELECT "id", "name", "email", "role" FROM users');
+    const users = resUsers.rows;
+    console.log('\n👥 USERS:', users.length);
+    users.forEach(u => {
+      console.log(`  - ID: ${u.id} (${typeof u.id}), Name: ${u.name}, Email: ${u.email}, Role: ${u.role}`);
+    });
+
+  } catch (err) {
+    console.error('Error checking database:', err);
+  } finally {
+    await client.end();
   }
-  
-  // Check users
-  db.all('SELECT id, name, email, role FROM users', [], (err, users) => {
-    if (err) {
-      console.error('Error fetching users:', err);
-    } else {
-      console.log('\n👥 USERS:', users.length);
-      users.forEach(u => {
-        console.log(`  - ID: ${u.id} (${typeof u.id}), Name: ${u.name}, Email: ${u.email}, Role: ${u.role}`);
-      });
-    }
-    
-    db.close();
-  });
-});
+}
+
+check();
