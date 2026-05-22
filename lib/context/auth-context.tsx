@@ -29,6 +29,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
   const { data: session, status } = useSession();
 
+  // Fallback timeout to prevent infinite loading state if NextAuth hangs
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (loading) {
+        console.warn('Auth loading timed out. Forcing UI to render.');
+        setLoading(false);
+      }
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, [loading]);
+
   // Fetch current user on mount or when NextAuth session changes
   useEffect(() => {
     if (status !== 'loading') {

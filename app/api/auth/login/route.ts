@@ -4,9 +4,11 @@ import { getDatabase } from '@/lib/db';
 import { initializeDatabase } from '@/lib/db-init';
 import bcrypt from 'bcryptjs';
 import { generateToken, setAuthCookie } from '@/lib/auth-utils';
+import { logApiRequest, logApiResponse, logApiError } from '@/lib/logger';
 
 export async function POST(request: NextRequest) {
   try {
+    logApiRequest(request, 'Login Attempt');
     // Ensure database is initialized
     await initializeDatabase();
 
@@ -15,6 +17,7 @@ export async function POST(request: NextRequest) {
       body = await request.json();
     } catch (e) {
       console.error('Failed to parse request body:', e);
+      logApiResponse(request, 400, { error: 'Invalid request body' });
       return NextResponse.json(
         { error: 'Invalid request body' },
         { status: 400 }
@@ -30,6 +33,7 @@ export async function POST(request: NextRequest) {
     // Validate input
     if (!email || !password) {
       console.log('Missing email or password');
+      logApiResponse(request, 400, { error: 'Email and password are required' });
       return NextResponse.json(
         { error: 'Email and password are required' },
         { status: 400 }
@@ -43,6 +47,7 @@ export async function POST(request: NextRequest) {
     if (!user) {
       console.log('User not found:', email);
       console.log('Available users:', (await db.users.getAll()).map((u: any) => u.email));
+      logApiResponse(request, 401, { error: 'Invalid email or password' });
       return NextResponse.json(
         { error: 'Invalid email or password' },
         { status: 401 }
@@ -58,6 +63,7 @@ export async function POST(request: NextRequest) {
 
     if (!isValidPassword) {
       console.log('Invalid password for:', email);
+      logApiResponse(request, 401, { error: 'Invalid email or password' });
       return NextResponse.json(
         { error: 'Invalid email or password' },
         { status: 401 }
@@ -83,6 +89,7 @@ export async function POST(request: NextRequest) {
         name: user.name,
         email: user.email,
         role: user.role,
+        loginTime: new Date().toISOString(),
       },
     });
 
@@ -91,10 +98,12 @@ export async function POST(request: NextRequest) {
     console.log('Setting cookie:', cookieValue.substring(0, 50) + '...');
     response.headers.set('Set-Cookie', cookieValue);
 
+    logApiResponse(request, 200, { success: true, email: user.email });
     return response;
   } catch (error: any) {
     console.error('Login error:', error);
     console.error('Stack:', error.stack);
+    logApiError(request, error, 'Login Error');
     return NextResponse.json(
       { error: 'Internal server error: ' + error.message },
       { status: 500 }

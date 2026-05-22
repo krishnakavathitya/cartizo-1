@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\codage habitation\\cartizo-1\\log\\.43ceae4128f11020f153656101d03763adff8467-audit.json",
+    "files": [
+        {
+            "date": 1779357125969,
+            "name": "E:\\codage habitation\\cartizo-1\\log\\error-2026-05-21.log",
+            "hash": "23a7926c04241355ce8900ffc4b2d13345ae5b26a6dbdd3d321c4396d3ff6e8e"
+        },
+        {
+            "date": 1779443762902,
+            "name": "E:\\codage habitation\\cartizo-1\\log\\error-2026-05-22.log",
+            "hash": "4b9fa7340607fa309cb7b5f3b427384b0f6d9b7bba943c47dc3dbc241b65c2e9"
+        }
+    ],
+    "hashType": "sha256"
+}

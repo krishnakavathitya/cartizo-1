@@ -143,7 +143,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-lg sm:text-xl font-black text-slate-900 uppercase tracking-widest mb-2">Database Empty</h3>
               <p className="text-xs sm:text-sm font-bold text-slate-400 max-w-xs mx-auto mb-8 uppercase tracking-tight">Manual inventory entry required to populate storefront cards.</p>
-              <a href="/admin/products/add" className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-95">
+              <a href="//products/add" className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/20 active:scale-95">
                 Initialize Inventory
               </a>
             </div>
