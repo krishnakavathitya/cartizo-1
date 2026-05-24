@@ -1,0 +1,2781 @@
+{
+  "users": [
+    {
+      "id": 11,
+      "name": "Admin",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$KwvRTsh.OrQRjxZDEHZv9eMzNLpXj54c6qdblcsgsQz.eDfgD8Xxm",
+      "role": "admin",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.353Z"
+    },
+    {
+      "id": 13,
+      "name": "user ",
+      "email": "test@gmail.com",
+      "password": "$2a$10$bSpJ9MXP2RZCdzlDi6OQgOKGWRWsh271/fnvGAd9mhYkYdu1hhRZq",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.365Z"
+    },
+    {
+      "id": 14,
+      "name": "user",
+      "email": "user123@gmail.com",
+      "password": "$2a$10$X3m7V4d9AP9oO5nU/NcAzepB2lHPrsBZ.VSTbJvc7jGNp2ZIk0neW",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.369Z"
+    },
+    {
+      "id": 15,
+      "name": "kishu",
+      "email": "kishu@gmail.com",
+      "password": "$2a$10$B6.U6cYbk8GVXQ0x0u5EUeDQHsK.2mXY6pdtM9ERoYIN0SkZ9tD1q",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.373Z"
+    },
+    {
+      "id": 16,
+      "name": "tests",
+      "email": "tests@gmail.com",
+      "password": "$2a$10$zjKolylunmtBbjckFO32X.qW1jQr2/AsGrk4JN/FEByjKUUsEnKme",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.376Z"
+    },
+    {
+      "id": 17,
+      "name": "Kishu",
+      "email": "demo@gmail.com",
+      "password": "$2a$10$MlMM8RHTjjA5Jw0u4gN2NuIBwEP1MAwNxu8bHdZdz7lCOS93ztSkG",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.380Z"
+    },
+    {
+      "id": 18,
+      "name": "Ravi",
+      "email": "Ravi@gmail.com",
+      "password": "$2a$10$jdZ8Mvzvlm0M8DWuziVLhOIzA3jFjqiVFPAVs1ZOGOF8U3q/xyIGK",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.383Z"
+    },
+    {
+      "id": 19,
+      "name": "Krishna Kavathiya",
+      "email": "krishnakavathiya13@gmail.com",
+      "password": "$2a$10$iNiCf.hM8YqO3gDgTx4Xo.3wNmyo/oLcHapE4LKGCl/u09ilYXPFi",
+      "role": "user",
+      "avatar": "/uploads/avatars/avatar-9-1772427028927.jpg",
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.387Z"
+    },
+    {
+      "id": 20,
+      "name": "Kishu Kavathiya",
+      "email": "kishukavathiya@gmail.com",
+      "password": "",
+      "role": "user",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocL_1wPtt0ng1usGf_BxMNHiH-St3DCw_3xQI1AS3fXVQbU2RA=s96-c",
+      "phone": null,
+      "createdAt": "2026-03-02T00:44:39.391Z"
+    },
+    {
+      "id": 21,
+      "name": "Krishna Kavathiya",
+      "email": "221264107001setice@gmail.com",
+      "password": "",
+      "role": "user",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocKHiTRlUfLpQ9RzQoQRxgcTqUO608qkwdG6gQ0KsB2EZhFJzA=s96-c",
+      "phone": null,
+      "createdAt": "2026-03-03T07:25:21.270Z"
+    },
+    {
+      "id": 22,
+      "name": "Test",
+      "email": "test1@gmail.com",
+      "password": "$2a$10$yN0o2lmluzRaBQbVYGKEsOuBnVCcWzmRDpXObFmtd90rPJ/pfKIg2",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-05T01:09:00.028Z"
+    },
+    {
+      "id": 23,
+      "name": "Michael Johnson",
+      "email": "michael.johnson@example.com",
+      "password": "$2a$10$lsV0lGaSqYXRf7l4d.IgzeO//fh.Gc4eaQeZRCjoZGI7Xuq2Ujiwu",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-03-10T01:15:50.895Z"
+    },
+    {
+      "id": 24,
+      "name": "Krishna Kavathiya",
+      "email": "krishnakavathiya13112003@gmail.com",
+      "password": "",
+      "role": "user",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIqy9zvUh6w2ihFrwMAwSiPZ93ELLCo5i7_MYMZ0Yc3l8ROww=s96-c",
+      "phone": null,
+      "createdAt": "2026-03-11T03:36:52.969Z"
+    },
+    {
+      "id": 25,
+      "name": "krishna",
+      "email": "krishnakava2004@gmail.com",
+      "password": "",
+      "role": "user",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocJTO08ZdYoJ-R6ooz_u3AKR_54G6njOzqBfegQ48qY_SeBAiQ=s96-c",
+      "phone": null,
+      "createdAt": "2026-03-12T23:48:54.128Z"
+    },
+    {
+      "id": 26,
+      "name": "Krishna Kavathiya",
+      "email": "krishnakavathiya133@gmail.com",
+      "password": "$2a$10$lmjzgYnmHXFquaIeLCCCueWczUvix6ddVlNhiqq82ySaod5xQiJf6",
+      "role": "user",
+      "avatar": null,
+      "phone": null,
+      "createdAt": "2026-04-30T13:29:17.509Z"
+    },
+    {
+      "id": 27,
+      "name": "krishna",
+      "email": "krishnak.codage@gmail.com",
+      "password": "",
+      "role": "user",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocIGwD5wrtRH2oBhoyMCEkpi-giGX0UhjqZRCx7OUvnd8jvv7w=s96-c",
+      "phone": null,
+      "createdAt": "2026-05-21T08:03:09.467Z"
+    }
+  ],
+  "products": [
+    {
+      "id": 19,
+      "name": "Sony WH-1000XM5 Headphone",
+      "slug": "sony-wh-1000xm5",
+      "brand": "Sony",
+      "category": "electronics",
+      "price": 34999,
+      "discount": 25,
+      "description": "Fresh and pure product with high quality ingredients. Perfect for daily use.",
+      "specifications": "",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop",
+      "averageRating": 4.8,
+      "reviewCount": 1876,
+      "inStock": false,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.393Z"
+    },
+    {
+      "id": 21,
+      "name": "Levi's 501 Original Jeans",
+      "slug": "levis-501-jeans",
+      "brand": "Levis",
+      "category": "Fashion",
+      "price": 3999,
+      "discount": 25,
+      "description": "Classic straight fit jeans. 100% cotton denim, button fly, iconic 5-pocket styling. The original blue jean since 1873.",
+      "specifications": "{\"Fit\": \"Straight\", \"Material\": \"100% Cotton\", \"Sizes\": \"28-40\", \"Color\": \"Dark Blue\"}",
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop",
+      "averageRating": 4,
+      "reviewCount": 2,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.399Z"
+    },
+    {
+      "id": 22,
+      "name": "Adidas Originals Hoodie",
+      "slug": "adidas-hoodie",
+      "brand": "Adidas",
+      "category": "Fashion",
+      "price": 2999,
+      "discount": 30,
+      "description": "Comfortable cotton blend hoodie with iconic trefoil logo. Kangaroo pocket, ribbed cuffs and hem. Perfect for casual wear.",
+      "specifications": "{\"Material\": \"70% Cotton 30% Polyester\", \"Sizes\": \"S-XXL\", \"Color\": \"Black\", \"Fit\": \"Regular\"}",
+      "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop",
+      "averageRating": 4.4,
+      "reviewCount": 987,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.402Z"
+    },
+    {
+      "id": 23,
+      "name": "Amul Full Cream Milk (1L)",
+      "slug": "amul-milk-1l",
+      "brand": "Amul",
+      "category": "Groceries",
+      "price": 67,
+      "discount": 0,
+      "description": "Fresh and pure full cream milk rich in calcium and protein. Perfect for tea, coffee, and daily nutrition.",
+      "specifications": "{\"Volume\": \"1 Liter\", \"Type\": \"Full Cream\", \"Fat\": \"6%\", \"Protein\": \"3.5g per 100ml\"}",
+      "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop",
+      "averageRating": 4.7,
+      "reviewCount": 5432,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.405Z"
+    },
+    {
+      "id": 24,
+      "name": "Maggi 2-Minute Noodles (12 Pack)",
+      "slug": "maggi-noodles-12pack",
+      "brand": "Maggi",
+      "category": "Groceries",
+      "price": 144,
+      "discount": 10,
+      "description": "India's favorite instant noodles. Quick and easy to prepare. Pack of 12 for the whole family.",
+      "specifications": "{\"Pack Size\": \"12 x 70g\", \"Flavor\": \"Masala\", \"Cooking Time\": \"2 minutes\", \"Vegetarian\": \"Yes\"}",
+      "image": "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=400&h=400&fit=crop",
+      "averageRating": 4.6,
+      "reviewCount": 8765,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.407Z"
+    },
+    {
+      "id": 25,
+      "name": "Tata Tea Premium (1kg)",
+      "slug": "tata-tea-premium-1kg",
+      "brand": "Tata",
+      "category": "Groceries",
+      "price": 450,
+      "discount": 12,
+      "description": "Premium Assam tea with rich aroma and strong taste. Perfect blend for your morning cup.",
+      "specifications": "{\"Weight\": \"1kg\", \"Type\": \"Black Tea\", \"Origin\": \"Assam\", \"Caffeine\": \"High\"}",
+      "image": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=400&h=400&fit=crop",
+      "averageRating": 4.5,
+      "reviewCount": 3456,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.410Z"
+    },
+    {
+      "id": 26,
+      "name": "Philips LED Bulb 9W (Pack of 4)",
+      "slug": "philips-led-bulb-9w",
+      "brand": "Philips",
+      "category": "Home",
+      "price": 399,
+      "discount": 15,
+      "description": "Energy-efficient LED bulbs with 9W power consumption. Cool daylight, B22 base. Lasts up to 15,000 hours.",
+      "specifications": "{\"Power\": \"9W\", \"Base\": \"B22\", \"Color\": \"Cool Daylight\", \"Lifespan\": \"15000 hours\"}",
+      "image": "https://images.unsplash.com/photo-1550985616-10810253b84d?w=400&h=400&fit=crop",
+      "averageRating": 4.3,
+      "reviewCount": 1234,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.413Z"
+    },
+    {
+      "id": 28,
+      "name": "Atomic Habits by James Clear",
+      "slug": "atomic-habits-book",
+      "brand": "Penguin",
+      "category": "Books",
+      "price": 599,
+      "discount": 25,
+      "description": "Bestselling book on building good habits and breaking bad ones. Practical strategies for personal transformation.",
+      "specifications": "{\"Author\": \"James Clear\", \"Pages\": \"320\", \"Language\": \"English\", \"Publisher\": \"Penguin Random House\"}",
+      "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
+      "averageRating": 4.8,
+      "reviewCount": 4567,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.418Z"
+    },
+    {
+      "id": 29,
+      "name": "The Psychology of Money",
+      "slug": "psychology-of-money",
+      "brand": "Jaico",
+      "category": "Books",
+      "price": 349,
+      "discount": 20,
+      "description": "Timeless lessons on wealth, greed, and happiness by Morgan Housel. Essential reading for financial wisdom.",
+      "specifications": "{\"Author\": \"Morgan Housel\", \"Pages\": \"256\", \"Language\": \"English\", \"Publisher\": \"Jaico Publishing\"}",
+      "image": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&h=400&fit=crop",
+      "averageRating": 4.7,
+      "reviewCount": 3210,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.423Z"
+    },
+    {
+      "id": 30,
+      "name": "LEGO Classic Creative Bricks",
+      "slug": "lego-classic-bricks",
+      "brand": "LEGO",
+      "category": "Toys",
+      "price": 2999,
+      "discount": 15,
+      "description": "790 pieces of colorful LEGO bricks. Endless building possibilities. Suitable for ages 4+. Includes storage box.",
+      "specifications": "{\"Pieces\": \"790\", \"Age\": \"4+\", \"Material\": \"ABS Plastic\", \"Box\": \"Included\"}",
+      "image": "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=400&h=400&fit=crop",
+      "averageRating": 4.9,
+      "reviewCount": 1876,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.426Z"
+    },
+    {
+      "id": 32,
+      "name": "Lakme Absolute Lipstick",
+      "slug": "lakme-lipstick",
+      "brand": "Lakme",
+      "category": "Beauty",
+      "price": 599,
+      "discount": 20,
+      "description": "Fresh and pure product with high quality ingredients. Perfect for daily use.",
+      "specifications": "",
+      "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop",
+      "averageRating": 4.4,
+      "reviewCount": 1567,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.433Z"
+    },
+    {
+      "id": 34,
+      "name": "Iphone",
+      "slug": "iphone",
+      "brand": "apple",
+      "category": "electronics",
+      "price": 149998,
+      "discount": 25,
+      "description": "Fresh and pure product with high quality ingredients. Perfect for daily use.",
+      "specifications": "",
+      "image": "data:image/webp;base64,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",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.440Z"
+    },
+    {
+      "id": 35,
+      "name": "Book",
+      "slug": "book",
+      "brand": "abc",
+      "category": "Books",
+      "price": 2500,
+      "discount": 25,
+      "description": "Fresh and pure product with high quality ingredients. Perfect for daily use.",
+      "specifications": "",
+      "image": "data:image/jpeg;base64,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",
+      "averageRating": 5,
+      "reviewCount": 1,
+      "inStock": true,
+      "stock": 10,
+      "createdAt": "2026-03-02T00:44:39.443Z"
+    },
+    {
+      "id": 36,
+      "name": "IPhone 15 128GB",
+      "slug": "iphone-15-iphone-15-128gb128gb",
+      "brand": "Apple",
+      "category": "electronics",
+      "price": 79999,
+      "discount": 5,
+      "description": "Latest Apple iPhone 15 with A16 Bionic chip, 48MP camera, and 128GB storage.",
+      "specifications": "{}",
+      "image": "https://smpl-prod-app-v2.gumlet.io/product_img/14501/1694714797_wP3.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 50,
+      "createdAt": "2026-03-02T00:44:39.446Z"
+    },
+    {
+      "id": 37,
+      "name": "Samsung Galaxy S24",
+      "slug": "samsung-galaxy-s24",
+      "brand": "Samsung",
+      "category": "electronics",
+      "price": 74999,
+      "discount": 10,
+      "description": "Premium Samsung smartphone with AMOLED display and high-performance processor.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/21nGAfj+EmL._QL70_FMwebp_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 40,
+      "createdAt": "2026-03-02T01:14:50.552Z"
+    },
+    {
+      "id": 38,
+      "name": "OnePlus 12",
+      "slug": "oneplus-12",
+      "brand": "OnePlus",
+      "category": "electronics",
+      "price": 64999,
+      "discount": 8,
+      "description": "Flagship OnePlus smartphone with Snapdragon processor and 120Hz display",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/mobile/v/g/m/12-cph2573-oneplus-original-imahk47dwgquvv8z.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 60,
+      "createdAt": "2026-03-02T01:17:46.096Z"
+    },
+    {
+      "id": 39,
+      "name": "Sony WH-1000XM5 Headphones",
+      "slug": "sony-wh-1000xm5-headphones",
+      "brand": "Sony",
+      "category": "electronics",
+      "price": 29999,
+      "discount": 12,
+      "description": "Industry-leading noise cancelling wireless headphones with 30-hour battery life.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/51KGPDttQhL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 35,
+      "createdAt": "2026-03-02T01:19:30.275Z"
+    },
+    {
+      "id": 40,
+      "name": "Apple Watch Series 9",
+      "slug": "apple-watch-series-9",
+      "brand": "Apple",
+      "category": "electronics",
+      "price": 41999,
+      "discount": 7,
+      "description": "Advanced smartwatch with fitness tracking, ECG, and Always-On Retina display.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71QX7TwoNWL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 45,
+      "createdAt": "2026-03-02T01:27:44.647Z"
+    },
+    {
+      "id": 41,
+      "name": "Dell Inspiron 15 Laptop",
+      "slug": "dell-inspiron-15-laptop",
+      "brand": "Dell",
+      "category": "electronics",
+      "price": 58999,
+      "discount": 15,
+      "description": "Powerful laptop with Intel i5 processor, 16GB RAM and 512GB SSD.",
+      "specifications": "{}",
+      "image": "https://dellstatic.luroconnect.com/media/catalog/product/cache/74ae05ef3745aec30d7f5a287debd7f5/o/d/odc1625001201rins1-2.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 25,
+      "createdAt": "2026-03-02T01:30:29.423Z"
+    },
+    {
+      "id": 42,
+      "name": "HP Pavilion Gaming Laptop  ",
+      "slug": "hp-pavilion-gaming-laptop",
+      "brand": "HP",
+      "category": "electronics",
+      "price": 72999,
+      "discount": 18,
+      "description": "Gaming laptop with RTX graphics and high refresh rate display.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSyLCAiNcFbywp8PGk8YWcJUJjmsJ6XIAuesVb-BYcvmOckqPp3VZy2NR62TFV3XMK_PdY-EjczqA1f8ZSpdZsavNA5HijQ",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 20,
+      "createdAt": "2026-03-02T01:33:23.339Z"
+    },
+    {
+      "id": 43,
+      "name": "Canon EOS 1500D DSLR Camera",
+      "slug": "canon-eos-1500d-dslr-camera",
+      "brand": "Canon",
+      "category": "electronics",
+      "price": 39999,
+      "discount": 10,
+      "description": "24.1MP DSLR camera with WiFi and full HD video recording.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 18,
+      "createdAt": "2026-03-02T01:35:40.579Z"
+    },
+    {
+      "id": 44,
+      "name": "JBL Flip 6 Bluetooth Speaker",
+      "slug": "jbl-flip-6-bluetooth-speaker",
+      "brand": "JBL",
+      "category": "electronics",
+      "price": 9999,
+      "discount": 20,
+      "description": "Portable waterproof Bluetooth speaker with powerful bass.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/813IarPMYPL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 75,
+      "createdAt": "2026-03-02T01:37:25.583Z"
+    },
+    {
+      "id": 45,
+      "name": "Mi 55-inch 4K Smart TV",
+      "slug": "mi-55-inch-4k-smart-tv",
+      "brand": "Xiaomi",
+      "category": "electronics",
+      "price": 44999,
+      "discount": 14,
+      "description": "4K Ultra HD Smart TV with Dolby Vision and Android TV support.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/81G7HkMBe1L._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 22,
+      "createdAt": "2026-03-02T01:38:56.539Z"
+    },
+    {
+      "id": 46,
+      "name": "The Alchemist",
+      "slug": "the-alchemist",
+      "brand": "Paulo Coelho",
+      "category": "books",
+      "price": 399,
+      "discount": 10,
+      "description": "An inspirational novel about a young shepherd named Santiago who travels from Spain to Egypt in search of treasure. Along the way, he learns powerful life lessons about destiny, faith, courage, and following one’s dreams.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/617lxveUjYL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T01:44:12.951Z"
+    },
+    {
+      "id": 47,
+      "name": "Atomic Habits",
+      "slug": "atomic-habits",
+      "brand": "James Clear",
+      "category": "books",
+      "price": 499,
+      "discount": 15,
+      "description": "A practical guide to building good habits and breaking bad ones. The book explains how small daily improvements lead to remarkable long-term results using proven scientific strategies.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/817HaeblezL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 80,
+      "createdAt": "2026-03-02T01:45:49.612Z"
+    },
+    {
+      "id": 48,
+      "name": "Rich Dad Poor Dad",
+      "slug": "rich-dad-poor-dad",
+      "brand": "Robert Kiyosaki",
+      "category": "books",
+      "price": 450,
+      "discount": 12,
+      "description": "A personal finance classic that contrasts two different mindsets about money—one from a wealthy mentor (Rich Dad) and one from the author’s biological father (Poor Dad). It teaches financial literacy, investing, and wealth-building strategies.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71HJj3XmheL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 90,
+      "createdAt": "2026-03-02T01:47:11.991Z"
+    },
+    {
+      "id": 49,
+      "name": "Ikigai",
+      "slug": "ikigai",
+      "brand": "Héctor García",
+      "category": "books",
+      "price": 350,
+      "discount": 8,
+      "description": "Inspired by Japanese philosophy, this book explores the concept of “Ikigai” — your reason for being. It shares insights from the longest-living people in Japan about happiness, purpose, and longevity.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/81l3rZK4lnL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 120,
+      "createdAt": "2026-03-02T01:48:41.790Z"
+    },
+    {
+      "id": 50,
+      "name": "The Power of Now",
+      "slug": "the-power-of-now",
+      "brand": "Eckhart Tolle",
+      "category": "books",
+      "price": 420,
+      "discount": 10,
+      "description": "A spiritual guide that teaches readers how to live fully in the present moment. It focuses on mindfulness, reducing anxiety, and overcoming negative thought patterns.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/61sq3-zlFnL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 75,
+      "createdAt": "2026-03-02T01:50:07.873Z"
+    },
+    {
+      "id": 51,
+      "name": "Think and Grow Rich",
+      "slug": "think-and-grow-rich",
+      "brand": "Napoleon Hill",
+      "category": "books",
+      "price": 299,
+      "discount": 20,
+      "description": "A timeless success manual based on interviews with wealthy individuals. It outlines principles such as desire, faith, persistence, and mastermind alliances for achieving financial and personal success.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/61IxJuRI39L._SL1000_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 150,
+      "createdAt": "2026-03-02T01:51:46.154Z"
+    },
+    {
+      "id": 52,
+      "name": "Deep Work",
+      "slug": "deep-work",
+      "brand": "Cal Newport",
+      "category": "books",
+      "price": 520,
+      "discount": 5,
+      "description": "A productivity-focused book that explains the importance of focused, distraction-free work in a world full of interruptions. It provides strategies to develop deep concentration skills.",
+      "specifications": "{}",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2022/2/JN/OT/TH/147304712/whatsapp-image-2022-02-11-at-3-26-48-pm.jpeg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 60,
+      "createdAt": "2026-03-02T01:53:30.069Z"
+    },
+    {
+      "id": 53,
+      "name": "Men Casual T-Shirt",
+      "slug": "men-casual-t-shirt",
+      "brand": "H&M",
+      "category": "fashion",
+      "price": 799,
+      "discount": 20,
+      "description": "Comfortable cotton casual t-shirt designed for everyday wear. Soft fabric, regular fit, and breathable material perfect for summer styling.",
+      "specifications": "{}",
+      "image": "https://www.celsiusclothing.com/cdn/shop/files/6020-mosaic_blue-lifestyle.png?v=1757393033&width=1800",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 150,
+      "createdAt": "2026-03-02T01:56:12.662Z"
+    },
+    {
+      "id": 54,
+      "name": "Women Denim Jacket",
+      "slug": "women-denim-jacket",
+      "brand": "Zara",
+      "category": "fashion",
+      "price": 2999,
+      "discount": 15,
+      "description": "Trendy blue denim jacket with a modern fit. Ideal for layering over casual outfits to create a stylish and bold look.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/913sL+OvALL._SY879_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 60,
+      "createdAt": "2026-03-02T01:57:54.979Z"
+    },
+    {
+      "id": 55,
+      "name": "Men Slim Fit Jeans",
+      "slug": "men-slim-fit-jeans",
+      "brand": "Levi's",
+      "category": "fashion",
+      "price": 2499,
+      "discount": 25,
+      "description": "Premium slim-fit jeans crafted from stretchable denim fabric. Offers comfort, durability, and a sharp modern silhouette.",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/jean/6/h/n/32-a7087-0214-levi-s-original-imah7jspffta7caw.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 80,
+      "createdAt": "2026-03-02T01:59:34.079Z"
+    },
+    {
+      "id": 56,
+      "name": "Women Kurti",
+      "slug": "women-kurti",
+      "brand": "Biba",
+      "category": "fashion",
+      "price": 1499,
+      "discount": 18,
+      "description": "Elegant ethnic kurti made from soft fabric with beautiful traditional prints. Perfect for festive and daily wear.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/617u5lUUXiL._SX679_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 120,
+      "createdAt": "2026-03-02T02:01:22.826Z"
+    },
+    {
+      "id": 57,
+      "name": "Sports Running Shoes",
+      "slug": "sports-running-shoes",
+      "brand": " Nike",
+      "category": "fashion",
+      "price": 4999,
+      "discount": 10,
+      "description": "Lightweight running shoes with cushioned sole for maximum comfort and performance. Designed for athletes and fitness enthusiasts.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/61+4HuCd9yL._AC_SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 70,
+      "createdAt": "2026-03-02T02:03:02.450Z"
+    },
+    {
+      "id": 58,
+      "name": "Formal Shirt",
+      "slug": "formal-shirt",
+      "brand": "Raymond",
+      "category": "fashion",
+      "price": 1999,
+      "discount": 12,
+      "description": "Classic formal shirt tailored for office and business wear. High-quality fabric with a crisp and professional finish.",
+      "specifications": "{}",
+      "image": "https://habeas.in/cdn/shop/files/6T8A0957.jpg?v=1759488154&width=3840",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 90,
+      "createdAt": "2026-03-02T02:48:03.451Z"
+    },
+    {
+      "id": 59,
+      "name": "Women Handbag",
+      "slug": "women-handbag",
+      "brand": "Caprese",
+      "category": "fashion",
+      "price": 2799,
+      "discount": 20,
+      "description": "Stylish and spacious handbag crafted from premium material. Perfect for office, shopping, or casual outings.",
+      "specifications": "{}",
+      "image": "https://shoplililo.com/cdn/shop/files/HB-002-SS25-GRY_Front.jpg?v=1760607277&width=700",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 55,
+      "createdAt": "2026-03-02T02:50:05.935Z"
+    },
+    {
+      "id": 60,
+      "name": "Men Hoodie",
+      "slug": "men-hoodie",
+      "brand": "Puma",
+      "category": "fashion",
+      "price": 2199,
+      "discount": 15,
+      "description": "Comfortable fleece hoodie with adjustable hood and front pocket. Ideal for winter wear and sporty style.",
+      "specifications": "{}",
+      "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/633016/82/mod01/fnd/IND/fmt/png/PUMA-Class-Pinnacle-Men's-Cotton-Hoodie",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 75,
+      "createdAt": "2026-03-02T02:52:02.091Z"
+    },
+    {
+      "id": 61,
+      "name": "Sunglasses",
+      "slug": "sunglasses",
+      "brand": "Fastrack",
+      "category": "fashion",
+      "price": 1599,
+      "discount": 30,
+      "description": "Stylish UV-protected sunglasses with modern frame design. Suitable for daily wear and travel.\nSlug: fastrack-sunglasses",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/sunglass/1/r/c/medium-isidore-black-black1-resist-eyewear-original-imahcfahzzegzgsj.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 140,
+      "createdAt": "2026-03-02T02:54:09.863Z"
+    },
+    {
+      "id": 62,
+      "name": "Analog Watch",
+      "slug": "analog-watch",
+      "brand": "Titan Company",
+      "category": "fashion",
+      "price": 14850,
+      "discount": 10,
+      "description": "Elegant analog wristwatch with premium metal strap and water-resistant build. Perfect for formal and casual occasions.",
+      "specifications": "{}",
+      "image": "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwcc454c2d/images/Titan/Catalog/90218SM02_1.jpg?sw=600&sh=600",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 65,
+      "createdAt": "2026-03-02T02:56:09.892Z"
+    },
+    {
+      "id": 63,
+      "name": "Wooden Dining Table",
+      "slug": "wooden-dining-table",
+      "brand": "Ikea",
+      "category": "home",
+      "price": 15999,
+      "discount": 10,
+      "description": "Solid wood dining table with elegant finish, perfect for family gatherings.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHx5NSEwZJyYIlcOpsRVq9MHx0Zb_h69GcqSaR9E7QukDNd46cJdjdVduhaBb_3CGq-4QBwQBbHi_GbHRuchrxFMAhxEfhP5uNQzZNxoH4",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T02:59:25.821Z"
+    },
+    {
+      "id": 64,
+      "name": "Queen Size Bed",
+      "slug": "queen-size-bed",
+      "brand": "Wakefit",
+      "category": "home",
+      "price": 24999,
+      "discount": 18,
+      "description": "Spacious queen-size bed with durable engineered wood frame and contemporary design for comfortable sleeping.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/91uEkobqp9L._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 40,
+      "createdAt": "2026-03-02T03:00:59.667Z"
+    },
+    {
+      "id": 65,
+      "name": "Sofa Set 3 Seater",
+      "slug": "sofa-set-3-seater",
+      "brand": "Urban Ladder",
+      "category": "home",
+      "price": 28999,
+      "discount": 20,
+      "description": "Comfortable three-seater sofa with premium cushioning, high-quality upholstery, and elegant modern styling",
+      "specifications": "{}",
+      "image": "https://ik.imagekit.io/2xkwa8s1i/img/npl_modified_images/Sofa_image/WSFALMRN3FVGM/WSFALMRN3FVGM_1.jpg?tr=w-2560",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 35,
+      "createdAt": "2026-03-02T03:03:12.691Z"
+    },
+    {
+      "id": 66,
+      "name": "LED Ceiling Light",
+      "slug": "led-ceiling-light",
+      "brand": "Philips",
+      "category": "home",
+      "price": 3999,
+      "discount": 12,
+      "description": "Energy-efficient LED ceiling light providing bright, uniform, and long-lasting illumination for living rooms and bedrooms.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71GGFtAs5OL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T03:04:39.170Z"
+    },
+    {
+      "id": 67,
+      "name": "Wall Clock",
+      "slug": "wall-clock",
+      "brand": "Ajanta",
+      "category": "home",
+      "price": 1799,
+      "discount": 10,
+      "description": "Decorative wall clock with silent sweep movement and modern design, ideal for home or office decor.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71sPy7nILUL._SL1500_.jpg",
+      "averageRating": 5,
+      "reviewCount": 1,
+      "inStock": true,
+      "stock": 90,
+      "createdAt": "2026-03-02T03:06:35.918Z"
+    },
+    {
+      "id": 68,
+      "name": "Kitchen Storage Rack",
+      "slug": "kitchen-storage-rack",
+      "brand": "Nilkamal",
+      "category": "home",
+      "price": 1999,
+      "discount": 15,
+      "description": "Multi-layer kitchen storage rack made from durable material, perfect for organizing utensils and groceries.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71xGlZMntKL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 70,
+      "createdAt": "2026-03-02T03:08:24.681Z"
+    },
+    {
+      "id": 69,
+      "name": "Microwave Oven",
+      "slug": "microwave-oven",
+      "brand": "LG Electronics",
+      "category": "home",
+      "price": 8999,
+      "discount": 18,
+      "description": "Compact microwave oven with multiple cooking modes, quick heating, and energy-saving features.",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/microwave-new/i/r/o/-original-imah6dzajzhbqfum.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 45,
+      "createdAt": "2026-03-02T03:09:50.907Z"
+    },
+    {
+      "id": 70,
+      "name": "Vacuum Cleaner",
+      "slug": "vacuum-cleaner",
+      "brand": "Eureka Forbes",
+      "category": "home",
+      "price": 6999,
+      "discount": 17,
+      "description": "Powerful vacuum cleaner with strong suction, lightweight body, and easy portability for efficient home cleaning.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/51k9Necv-NL._SL1200_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 60,
+      "createdAt": "2026-03-02T03:18:36.078Z"
+    },
+    {
+      "id": 71,
+      "name": "Water Purifier",
+      "slug": "water-purifier",
+      "brand": "Kent RO Systems",
+      "category": "home",
+      "price": 12999,
+      "discount": 20,
+      "description": "Advanced RO water purifier with multi-stage filtration ensuring safe, clean, and healthy drinking water.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71t0NsvsFHL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 55,
+      "createdAt": "2026-03-02T03:22:35.616Z"
+    },
+    {
+      "id": 72,
+      "name": "Study Table",
+      "slug": "study-table",
+      "brand": "Godrej Interio",
+      "category": "home",
+      "price": 5999,
+      "discount": 14,
+      "description": "Ergonomic study table with built-in storage drawers and sturdy design, ideal for students and home offices.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/812McbXc0pL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": false,
+      "stock": 80,
+      "createdAt": "2026-03-02T03:25:55.088Z"
+    },
+    {
+      "id": 73,
+      "name": "Remote Control Car",
+      "slug": "remote-control-car",
+      "brand": "Hot Wheels",
+      "category": "toys",
+      "price": 1499,
+      "discount": 20,
+      "description": "High-speed remote control car with durable body, rechargeable battery, and smooth controls. Perfect for kids who love racing toys.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71NWn+k7K1L._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 150,
+      "createdAt": "2026-03-02T03:31:42.098Z"
+    },
+    {
+      "id": 74,
+      "name": "Barbie Doll",
+      "slug": "barbie-doll",
+      "brand": "Barbie",
+      "category": "toys",
+      "price": 1299,
+      "discount": 15,
+      "description": "Beautiful Barbie doll with stylish outfit and accessories. Encourages creativity and imaginative play for kids.",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/doll-doll-house/v/w/r/-original-imah5cakkgjcgksp.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 180,
+      "createdAt": "2026-03-02T03:33:30.937Z"
+    },
+    {
+      "id": 75,
+      "name": "Building Blocks Set",
+      "slug": "building-blocks-set",
+      "brand": "LEGO",
+      "category": "toys",
+      "price": 999,
+      "discount": 18,
+      "description": "Creative building blocks set to enhance problem-solving, creativity, and motor skills in children.",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/block-construction/r/h/h/building-blocks-for-kids-super-architect-construction-set-for-original-imahkaqjbwgnxhry.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 200,
+      "createdAt": "2026-03-02T03:34:53.046Z"
+    },
+    {
+      "id": 76,
+      "name": "Teddy Bear Large",
+      "slug": "teddy-bear-large",
+      "brand": "Funskool",
+      "category": "toys",
+      "price": 899,
+      "discount": 12,
+      "description": "Soft and cuddly large teddy bear made with premium plush fabric. Perfect gift for kids and loved ones.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/61afc402pWL._SL1396_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 140,
+      "createdAt": "2026-03-02T03:36:16.518Z"
+    },
+    {
+      "id": 77,
+      "name": "Puzzle Game",
+      "slug": "puzzle-game",
+      "brand": "Skillmatics",
+      "category": "toys",
+      "price": 599,
+      "discount": 25,
+      "description": "Educational puzzle game designed to improve memory, concentration, and logical thinking skills.",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/puzzle/t/8/j/48-piece-play-underwater-animals-skillmatics-original-imagwzwxgqucfzjv.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 170,
+      "createdAt": "2026-03-02T03:38:00.649Z"
+    },
+    {
+      "id": 78,
+      "name": "Cricket Bat for Kids",
+      "slug": "cricket-bat-for-kids",
+      "brand": "SG",
+      "category": "toys",
+      "price": 799,
+      "discount": 20,
+      "description": "Lightweight cricket bat designed for kids, offering comfortable grip and durable performance.",
+      "specifications": "{}",
+      "image": "https://rukminim2.flixcart.com/image/1280/1280/xif0q/bat/p/t/k/0-9-1-02-plastic-bat-t-200-short-handle-sg01plst0002-grade-1-sg-original-imahg6uth3g6rvur.jpeg?q=90",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 130,
+      "createdAt": "2026-03-02T03:40:12.830Z"
+    },
+    {
+      "id": 79,
+      "name": "Toy Train Set",
+      "slug": "toy-train-set",
+      "brand": "Thomas & Friends",
+      "category": "toys",
+      "price": 1799,
+      "discount": 15,
+      "description": "Classic toy train set with tracks and realistic design. Provides fun and educational playtime.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/51PdkK0v4wL._SY300_SX300_QL70_FMwebp_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 90,
+      "createdAt": "2026-03-02T03:41:50.604Z"
+    },
+    {
+      "id": 80,
+      "name": "Educational Laptop Toy",
+      "slug": "educational-laptop-toy",
+      "brand": "VTech",
+      "category": "toys",
+      "price": 6191,
+      "discount": 18,
+      "description": "Interactive educational laptop toy that teaches alphabets, numbers, and basic skills through fun activities.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/71UcKwErWwL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 110,
+      "createdAt": "2026-03-02T03:43:24.792Z"
+    },
+    {
+      "id": 81,
+      "name": "Action Figure",
+      "slug": "action-figure",
+      "brand": "Marvel",
+      "category": "toys",
+      "price": 1099,
+      "discount": 22,
+      "description": "Superhero action figure with movable joints and realistic design. Perfect for imaginative play and collections.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQxyDjrv9bLp17_UOAKqOGUHfkv1LJJchDwu7cGCLq26GHCYEthrjZWnpQ4-axbgku9-tghnlzUn0bgeRwZgT29A5nng2fAbkpIR9yBzG_lQai81fr7KqEurQ",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 160,
+      "createdAt": "2026-03-02T03:45:03.533Z"
+    },
+    {
+      "id": 82,
+      "name": "Board Game Ludo",
+      "slug": "board-game-ludo",
+      "brand": "Hasbro",
+      "category": "toys",
+      "price": 399,
+      "discount": 10,
+      "description": "Classic Ludo board game for family entertainment. Great for improving strategic thinking and social interaction.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/61lsJlUAMSL._SL1080_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 188,
+      "createdAt": "2026-03-02T03:47:10.973Z"
+    },
+    {
+      "id": 83,
+      "name": "Basmati Rice 5kg",
+      "slug": "basmati-rice-5kg",
+      "brand": "India Gate",
+      "category": "groceries",
+      "price": 400,
+      "discount": 10,
+      "description": "Premium long-grain basmati rice known for its rich aroma and fluffy texture. Ideal for biryani, pulao, and daily meals. Carefully aged to enhance taste and cooking quality. Hygienically packed to maintain freshness.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTkfV89YJbz8_DEPLuegJpLos9OYYgAf8O-BkDF6dwkZlpjXCFPGspF3FqK8swH1ZXfBP2VLwM2WOGD_3M5Oiv9XT2UfS2IZk98LV1J_-1KlMPy5Nf-qwIbPw",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T03:53:17.859Z"
+    },
+    {
+      "id": 84,
+      "name": "Aashirvaad Atta 5kg",
+      "slug": "aashirvaad-atta-5kg",
+      "brand": "Aashirvaad",
+      "category": "groceries",
+      "price": 349,
+      "discount": 8,
+      "description": "High-quality whole wheat flour made from selected grains. Ensures soft, fluffy rotis and chapatis. Rich in fiber and essential nutrients for healthy daily consumption.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR6YEgJVLQfqCQCqn_o4c_GegzHJ5wAz1iu1WbzNrps9PUYPn1FQUFfG2N7JePHCQMYnghXgzL4oYcgxRNO3qdwVTciZHlQZhcRWA2x8QuKr1wJuXnkdCT_UokfoxrxWJDrqtDs2OQ&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 450,
+      "createdAt": "2026-03-02T03:54:45.861Z"
+    },
+    {
+      "id": 85,
+      "name": "Tata Salt 1kg",
+      "slug": "tata-salt-1kg",
+      "brand": "Tata Salt",
+      "category": "groceries",
+      "price": 28,
+      "discount": 5,
+      "description": "Vacuum-evaporated iodized salt that supports daily iodine intake. Free-flowing, pure, and essential for everyday cooking. Trusted brand for consistent quality.",
+      "specifications": "{}",
+      "image": "https://www.bbassets.com/media/uploads/p/l/241600_9-tata-salt-iodized.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 7,
+      "createdAt": "2026-03-02T04:08:15.895Z"
+    },
+    {
+      "id": 86,
+      "name": "Amul Butter 500g",
+      "slug": "amul-butter-500g",
+      "brand": "Amul",
+      "category": "groceries",
+      "price": 275,
+      "discount": 7,
+      "description": "Creamy and delicious butter made from fresh milk cream. Perfect for spreading on bread, cooking, baking, and enhancing flavor in dishes. Rich taste loved by all age groups.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS-PbaZV4vjxAxWrcnb8_dyiyayGZmwsjBE3csuEymA2260h6bjyLXIIlcxTPc7oh6pqGKJTnxoi-hNUrrGDj3_INsdWqgi",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T04:11:58.293Z"
+    },
+    {
+      "id": 87,
+      "name": "Fortune Sunflower Oil 1L",
+      "slug": "fortune-sunflower-oil-1l",
+      "brand": "Fortune",
+      "category": "groceries",
+      "price": 165,
+      "discount": 10,
+      "description": "Refined sunflower oil rich in Vitamin E. Light and healthy cooking oil suitable for frying, sautéing, and daily meal preparation. Maintains natural taste of food.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcS3pTmJ4zcUUCbWORL1KqN6ixLgT6UMxpvdqVuD5Kab17eSXtgCqoQgwiMBjiKuy3zKtGAlK0tC7O8dqNTVVHyzxJ8_1X0hZBmUHuKaNHytXQ41JZWpJ9adCQ&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 420,
+      "createdAt": "2026-03-02T04:13:41.775Z"
+    },
+    {
+      "id": 88,
+      "name": "Parle-G Biscuits",
+      "slug": "parle-g-biscuits",
+      "brand": "Parle-G",
+      "category": "groceries",
+      "price": 10,
+      "discount": 5,
+      "description": "Classic glucose biscuits enriched with essential nutrients. Crispy, tasty, and perfect for tea-time snacks. One of India’s most loved biscuit brands.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTvCPJMEV6AWZQsE4QvK9ps8VhrE2r9ljeTdvJBrIuDdyk2eQ9OPMjG-0F8qOX6Olz-r_SGGiXl_BLJlyWBMt8JVpAZVPA46WnSgH2Hv1tw1jtbtuh59GiUP8vUJ7U422ZWfIzHrQ&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T04:15:17.567Z"
+    },
+    {
+      "id": 89,
+      "name": "Bru Coffee 200g",
+      "slug": "bru-coffee-200g",
+      "brand": "Bru",
+      "category": "groceries",
+      "price": 400,
+      "discount": 15,
+      "description": "Aromatic instant coffee blend delivering rich flavor and refreshing taste. Perfect for starting your day with energy. Easy to prepare and long-lasting freshness.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmDWKTuplM3DPupoyMAKLQfmLef_QAeZULB1u5NpGN6jpJ_qpTpDRUcBj7LTIUlnGldiIdD4rrIUqfj3hOuy4wbl_ich3i8dDc_uXEBYL3ouAnPbl5WtD-EZ-jyPrtXbMSe5G_4Fk&usqp=CAc",
+      "averageRating": 5,
+      "reviewCount": 1,
+      "inStock": true,
+      "stock": 260,
+      "createdAt": "2026-03-02T04:18:35.301Z"
+    },
+    {
+      "id": 90,
+      "name": "Red Label Tea 500g",
+      "slug": "red-label-tea-500g",
+      "brand": "Brooke Bond Red Label",
+      "category": "groceries",
+      "price": 310,
+      "discount": 10,
+      "description": "Strong and flavorful tea blend made from carefully selected tea leaves. Delivers rich color and refreshing aroma in every cup. Ideal for daily consumption.",
+      "specifications": "{}",
+      "image": "data:image/jpeg;base64,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",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 300,
+      "createdAt": "2026-03-02T04:21:17.815Z"
+    },
+    {
+      "id": 91,
+      "name": "Sugar 1kg",
+      "slug": "sugar-1kg",
+      "brand": "Madhur",
+      "category": "groceries",
+      "price": 45,
+      "discount": 6,
+      "description": "Pure and refined white sugar processed under strict quality standards. Ideal for beverages, desserts, baking, and daily cooking needs. Hygienically packed for freshness.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ-AII6rs2H2mgZauJpc7UPcrYagcEyvshUIH5jpEj5VzIlh9c6lfI229GzXo0gC8rTH52jbwiNBkXJ4eiKPKySR9yAt2G9HA",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 450,
+      "createdAt": "2026-03-02T04:22:39.499Z"
+    },
+    {
+      "id": 92,
+      "name": "Lakme 9 to 5 Primer + Matte Lipstick",
+      "slug": "lakme-9-to-5-primer-matte-lipstick",
+      "brand": "Lakme",
+      "category": "beauty",
+      "price": 499,
+      "discount": 15,
+      "description": "Lakme 9 to 5 Primer + Matte Lipstick delivers intense matte color with a built-in primer for smooth application. The lightweight formula provides long-lasting coverage for up to 12 hours without drying your lips.\n\nEnriched with moisturizing ingredients, it keeps lips soft while offering rich pigment in a single swipe. Perfect for office wear, parties, and everyday use.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTfkzGHZcyIeKhTPy6iwoejAayOeN3WsvOR06MOMTBYv8VCRYhiYN7ZVMUkW1yG4btgxdH5wo9ApVeF1ufhAurqjwGo1JWLQ3EwhtOuMEL0UahEKVMx-I5kHBYUYkAcIffmnh6Vlg&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T04:30:14.161Z"
+    },
+    {
+      "id": 93,
+      "name": "Maybelline Fit Me Foundation",
+      "slug": "maybelline-fit-me-foundation",
+      "brand": "Maybelline",
+      "category": "beauty",
+      "price": 549,
+      "discount": 10,
+      "description": "Maybelline Fit Me Foundation provides natural-looking coverage with a matte finish. Its lightweight formula blends seamlessly into the skin, controlling oil and shine for up to 8 hours.\n\nAvailable in multiple shades, it is ideal for normal to oily skin types and gives a smooth, pore-less appearance.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ2_BcG8smiIcTRNdJduIqDWqYzxuG0JvFzs4KIZngyBLNWqK_w3ce6-e9Hd2bWmV-KU5fe3h0O0ZdLXYvSwwOFv50y85sgYAlGxPclQRNOy9miQAWEQL6tpE-TRPH1SwgT_V4mkfg&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 95,
+      "createdAt": "2026-03-02T04:32:15.590Z"
+    },
+    {
+      "id": 94,
+      "name": "Mamaearth Vitamin C Face Wash",
+      "slug": "mamaearth-vitamin-c-face-wash",
+      "brand": "Mamaearth",
+      "category": "beauty",
+      "price": 299,
+      "discount": 20,
+      "description": "Enriched with Vitamin C and turmeric, this face wash deeply cleanses the skin while enhancing natural glow. It helps reduce dullness, remove impurities, and brighten the complexion.\n\nSuitable for all skin types, the gentle formula is free from harmful chemicals and ideal for daily use.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcT738h_BF-Q3lxGlmCIeRHg7zKBo7G0NFee-ynb2UaVAsVgQX9p0ZU5gezzMzjGJtawheS1b1-iTqREaxStOZ7JV8LQPfl4YNTN1gMe3oT6Q6-hddob-lKFbrhown8e3Qvl0XN0eSQ&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 150,
+      "createdAt": "2026-03-02T04:34:13.948Z"
+    },
+    {
+      "id": 95,
+      "name": "L'Oreal Paris Total Repair 5 Shampoo",
+      "slug": "l-oreal-paris-total-repair-5-shampoo",
+      "brand": "L'Oreal",
+      "category": "beauty",
+      "price": 399,
+      "discount": 12,
+      "description": "L'Oreal Total Repair 5 Shampoo repairs damaged hair caused by heat styling, pollution, and dryness. Its advanced formula strengthens hair from root to tip and reduces breakage.\n\nWith regular use, hair feels smoother, shinier, and more manageable.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTHhYiyRRHeELe43Jkvxe3K1S-XNC52pDICNw7D6HPSVPvMeI9GW8mhWg9pzp4xUAldc6-t_QfbPl3mJGoaxOTWFiKvJ9qqWh7qKNpu2Dk_-A3vX2EtLT3uiE8VqjEPs-HXqobDQUdb&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 130,
+      "createdAt": "2026-03-02T04:36:31.968Z"
+    },
+    {
+      "id": 96,
+      "name": "Nivea Body Lotion Cocoa Nourish",
+      "slug": "nivea-body-lotion-cocoa-nourish",
+      "brand": "Nivea",
+      "category": "beauty",
+      "price": 400,
+      "discount": 18,
+      "description": "Nivea Cocoa Nourish Body Lotion provides deep moisturization for up to 48 hours. Enriched with cocoa butter and vitamin E, it keeps skin soft, smooth, and hydrated throughout the day.\n\nPerfect for dry and rough skin, especially during winter seasons.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSRupaskIZee80UuUwRz8QRGJzC01ULBCoIOQg2Go5DmEgNvJ4GsfITR5V9ZU97uJ01xKYsi5xEtISn15WFmHBgQFnczlIduY7mGl8vU8b0PxnfqCOQ9tHt9aAIZ_-_o6tG-srILvH&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 110,
+      "createdAt": "2026-03-02T04:37:49.259Z"
+    },
+    {
+      "id": 97,
+      "name": "Garnier Micellar Cleansing Water",
+      "slug": "garnier-micellar-cleansing-water",
+      "brand": "Garnier",
+      "category": "beauty",
+      "price": 349,
+      "discount": 15,
+      "description": "Garnier Micellar Water removes makeup, dirt, and oil without harsh rubbing. Its gentle, no-rinse formula cleanses and refreshes the skin while maintaining natural moisture balance.\n\nSuitable for sensitive skin and safe for daily use.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNRfjuu1p30E1aXLLKQP-9Ijvkwkgl-OVfm5SUrYlgiOjagQI06OvQJnCH9iyMEgURMevQPLlWlOYtgj5Q4_DIzZem3TRwSpKhD1q4jqKmUFvQoRgSrVWa6g",
+      "averageRating": 5,
+      "reviewCount": 1,
+      "inStock": true,
+      "stock": 140,
+      "createdAt": "2026-03-02T04:40:26.188Z"
+    },
+    {
+      "id": 98,
+      "name": "Himalaya Neem Face Pack",
+      "slug": "himalaya-neem-face-pack",
+      "brand": "Himalaya",
+      "category": "beauty",
+      "price": 199,
+      "discount": 10,
+      "description": "This herbal face pack helps control acne and remove excess oil. Enriched with neem and turmeric, it purifies pores and improves skin clarity.\n\nIdeal for oily and acne-prone skin types.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTCuqR5Sq21Fg5_ZEbg7jIcWTgDEPhU80mbseIcxdL9b_WuXJu0wjLuOpzONtG3FQKOIuQmZXdNyG2hsQjA-MC9z5dDxlPU_6gZA9QFPOvJH-sc8aUqyKHiIdc20P9-jGGa_u9yxSg&usqp=CAc",
+      "averageRating": 4,
+      "reviewCount": 1,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T04:41:51.466Z"
+    },
+    {
+      "id": 99,
+      "name": "Plum Green Tea Night Gel",
+      "slug": "plum-green-tea-night-gel",
+      "brand": "Plum",
+      "category": "beauty",
+      "price": 575,
+      "discount": 20,
+      "description": "Plum Green Tea Night Gel hydrates and repairs skin overnight. Its lightweight gel formula absorbs quickly without making skin oily.\n\nIt helps reduce acne marks and leaves skin refreshed and glowing by morning.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTJjYfWv0RRpHGB3bh8Nm4pyOmxvLYPcepXsglrrWWSi6CQPoKyEBowGiGbnmb4tG6BQHyGa8tKDmFfttghrI_XwzIwVrbIUXJqmP3GgKqH9ee-b2g7-ze6",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 85,
+      "createdAt": "2026-03-02T04:44:18.889Z"
+    },
+    {
+      "id": 100,
+      "name": "Minimalist SPF 50 Sunscreen",
+      "slug": "minimalist-spf-50-sunscreen",
+      "brand": "Minimalist",
+      "category": "beauty",
+      "price": 399,
+      "discount": 11,
+      "description": "Minimalist SPF 50 Sunscreen provides broad-spectrum protection against UVA and UVB rays. The lightweight, non-greasy formula prevents sun damage and premature aging.\n\nSuitable for daily wear and all skin types.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSpHJ0g8qvBfcjFRDaGr0H2l5ukF2DR-2taEzE3IZlIKLAgiY4-W5eZs2ANIovVzY9nNF02Zz_nWM-RCmcxzgI0Jh4VgogZ_kSMCKMOdnaoulgiCxqZAg5Vb1w9ebl2aU5ndngqRA&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T04:45:45.550Z"
+    },
+    {
+      "id": 101,
+      "name": "Biotique Bio Cucumber Toner",
+      "slug": "biotique-bio-cucumber-toner",
+      "brand": "Biotique",
+      "category": "beauty",
+      "price": 175,
+      "discount": 8,
+      "description": "Biotique Bio Cucumber Toner refreshes and tightens pores while balancing skin pH levels. Made with natural botanical extracts, it leaves skin feeling clean and revitalized.\n\nIdeal for normal to oily skin.",
+      "specifications": "{}",
+      "image": "https://www.biotique.com/cdn/shop/files/cucumber_f53f0b01-0166-485e-8cb6-c3a507ce4c5c_800x.jpg?v=1745497778",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 160,
+      "createdAt": "2026-03-02T04:47:55.485Z"
+    },
+    {
+      "id": 102,
+      "name": "Maybelline Color Show Nail Paint (Red Punch)",
+      "slug": "maybelline-color-show-nail-paint-red-punch",
+      "brand": "Maybelline",
+      "category": "beauty",
+      "price": 199,
+      "discount": 15,
+      "description": "A vibrant nail paint with rich pigmentation that gives salon-like color in just 2 coats. The long-lasting, chip-resistant formula ensures glossy and smooth nails for days. Perfect for daily wear or special occasions.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQlHKY5IQun0_M2vhWvm6wBzskPcjxPb8BTXWQDkKOCf-cTjmAA7ljobYnFdMlUQpfTdGG4OvYzJ6HKZ2uJNIfQVU9diAtU69JNZM3BWOIRiBOKGX0joOIGholobMu1JLlVBvQVzg&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T04:50:10.093Z"
+    },
+    {
+      "id": 103,
+      "name": "Classic Gold Hoop Earrings",
+      "slug": "classic-gold-hoop-earrings",
+      "brand": "Radiance",
+      "category": "beauty",
+      "price": 799,
+      "discount": 20,
+      "description": "Sleek and stylish gold-tone hoop earrings that complement any outfit — from casual to formal. Lightweight and comfortable for all-day wear. A must-have staple for every jewelry collection.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSpmvmL0yMpJZ5BQyKWEd0vtFiUvebQK_99vlYGYY0mbb4hY-HNlmM9_Wjjb-mqX2_c2Ci2HcW6_xst68CTjBq2oNLnXa5pVIW6JWX0PuOobT1z4BPeNmg_",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 95,
+      "createdAt": "2026-03-02T04:52:52.195Z"
+    },
+    {
+      "id": 104,
+      "name": "Lakme Eyeconic Kajal",
+      "slug": "lakme-eyeconic-kajal",
+      "brand": "Lakme",
+      "category": "beauty",
+      "price": 249,
+      "discount": 10,
+      "description": "Intense black kajal that glides on smoothly for bold, dramatic eyes. The long-lasting formula resists smudging and stays comfortable all day. Ideal for both classy and bold makeup looks.",
+      "specifications": "{}",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQh9P3-vEECfoxnZkUpw5-lie8U0pdZgmK0RE15OXBEFHS-up4ylUszY_sKEyNIaTsD76YY1fOOafyEo6QoMxoWzBYfDJJhaRlW7BmplG3LWwvYx4qimeDt5NFU43t1XRlY0jEB_2s&usqp=CAc",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 165,
+      "createdAt": "2026-03-02T04:55:38.204Z"
+    },
+    {
+      "id": 105,
+      "name": "OnePlus 15R",
+      "slug": "oneplus-15r",
+      "brand": "OnePlus",
+      "category": "electronics",
+      "price": 50499,
+      "discount": 8,
+      "description": "The OnePlus 15R is a powerful mid-range flagship smartphone designed for gaming, performance, and long battery life. It offers premium features at a slightly lower price than top flagship phones.",
+      "specifications": "{}",
+      "image": "https://m.media-amazon.com/images/I/61AsNTuJ6mL._SL1500_.jpg",
+      "averageRating": 0,
+      "reviewCount": 0,
+      "inStock": true,
+      "stock": 9,
+      "createdAt": "2026-04-01T05:37:43.906Z"
+    },
+    {
+      "id": 20,
+      "name": "Nike Air Max 270",
+      "slug": "nike-air-max-270",
+      "brand": "Nike",
+      "category": "Fashion",
+      "price": 12995,
+      "discount": 20,
+      "description": "Iconic running shoes with Max Air cushioning. Breathable mesh upper, durable rubber outsole. Available in multiple colors.",
+      "specifications": "{\"Type\": \"Running Shoes\", \"Material\": \"Mesh + Rubber\", \"Sizes\": \"UK 6-12\", \"Color\": \"Black/White\"}",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+      "averageRating": 4.6,
+      "reviewCount": 1567,
+      "inStock": true,
+      "stock": 100,
+      "createdAt": "2026-03-02T00:44:39.396Z"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "19492eee-b2e5-44e4-b441-645f0c280c7f",
+      "title": "Login Page",
+      "description": "create login page using the react js ",
+      "status": "todo",
+      "team_id": "d677668c-ef0d-422e-b273-f8e3aa328c9b",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "assigned_to": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "deadline": "2026-04-10T00:00:00.000Z",
+      "created_at": "2026-03-20T10:29:49.307Z",
+      "updated_at": "2026-03-20T10:29:49.307Z"
+    },
+    {
+      "id": "f9c2d26a-92a3-476a-a2c9-ef8a2ea8325b",
+      "title": "Task Card UI",
+      "description": "Design task cards with title, status, priority, and due date display",
+      "status": "todo",
+      "team_id": "3a1af1ce-4569-4dad-8e04-aea199a79476",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "assigned_to": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "deadline": "2026-04-30T00:00:00.000Z",
+      "created_at": "2026-03-20T11:22:54.302Z",
+      "updated_at": "2026-03-20T11:22:54.302Z"
+    },
+    {
+      "id": "ea979954-2772-4653-b16f-0be09516ccd8",
+      "title": "Sidebar Navigation Design",
+      "description": "Create responsive sidebar with icons, active states, and collapse functionality",
+      "status": "done",
+      "team_id": "3a1af1ce-4569-4dad-8e04-aea199a79476",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "assigned_to": "424d7449-16bd-462f-b063-174735d8c870",
+      "deadline": "2026-03-21T00:00:00.000Z",
+      "created_at": "2026-03-20T11:22:02.538Z",
+      "updated_at": "2026-03-20T11:22:02.538Z"
+    },
+    {
+      "id": "92bff180-8cdf-4697-b3e1-61ea2ea5bb2c",
+      "title": "Realtime Updates",
+      "description": "Enable realtime updates using Supabase subscriptions",
+      "status": "done",
+      "team_id": "d677668c-ef0d-422e-b273-f8e3aa328c9b",
+      "created_by": "424d7449-16bd-462f-b063-174735d8c870",
+      "assigned_to": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "deadline": "2026-03-20T00:00:00.000Z",
+      "created_at": "2026-03-20T11:30:39.787Z",
+      "updated_at": "2026-03-20T11:30:39.787Z"
+    },
+    {
+      "id": "9c841629-0eff-48f8-97a6-97761aa62e9d",
+      "title": "Implement task creation logic",
+      "description": "Develop backend logic to create new tasks, including validation, assigning users, and storing task details in the database.",
+      "status": "in_progress",
+      "team_id": "d677668c-ef0d-422e-b273-f8e3aa328c9b",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "assigned_to": "424d7449-16bd-462f-b063-174735d8c870",
+      "deadline": "2026-06-11T00:00:00.000Z",
+      "created_at": "2026-03-20T11:33:40.956Z",
+      "updated_at": "2026-03-20T11:33:40.956Z"
+    },
+    {
+      "id": "80f03a28-3ecc-46d2-9df7-10d69dbd0264",
+      "title": "Task Filtering",
+      "description": "Add filters by status, priority, and deadline",
+      "status": "todo",
+      "team_id": "d7da2ede-f1a0-40b4-b8a9-f2c49b29d551",
+      "created_by": "424d7449-16bd-462f-b063-174735d8c870",
+      "assigned_to": "424d7449-16bd-462f-b063-174735d8c870",
+      "deadline": "2026-06-05T00:00:00.000Z",
+      "created_at": "2026-03-20T11:24:18.414Z",
+      "updated_at": "2026-03-20T11:24:18.414Z"
+    },
+    {
+      "id": "99474138-2c5d-4209-be62-022edb949ce0",
+      "title": "Dashboard Layout",
+      "description": "Design dashboard with sidebar, header, and task list UI",
+      "status": "in_progress",
+      "team_id": "3a1af1ce-4569-4dad-8e04-aea199a79476",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "assigned_to": "424d7449-16bd-462f-b063-174735d8c870",
+      "deadline": "2026-03-24T00:00:00.000Z",
+      "created_at": "2026-03-20T11:20:00.487Z",
+      "updated_at": "2026-03-20T11:20:00.487Z"
+    },
+    {
+      "id": "6a806990-5102-477d-be49-e4fd8d9c35ef",
+      "title": "Implement Authentication UI",
+      "description": "Build login and signup screens with form validation and API integration.",
+      "status": "in_progress",
+      "team_id": "85b5f544-28ab-4ee6-8bfe-ee07d210ffb4",
+      "created_by": "7074ad4e-22f4-4c30-8e0c-ec9aa1c5a445",
+      "assigned_to": "7074ad4e-22f4-4c30-8e0c-ec9aa1c5a445",
+      "deadline": "2026-04-09T00:00:00.000Z",
+      "created_at": "2026-03-20T12:44:11.099Z",
+      "updated_at": "2026-03-20T12:44:11.099Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "21c6545f-8a48-4403-a4ec-23ba3aa72381",
+      "task_id": "19492eee-b2e5-44e4-b441-645f0c280c7f",
+      "user_id": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "content": "Integrated email and password fields with state management",
+      "created_at": "2026-03-20T10:33:00.983Z"
+    },
+    {
+      "id": "3a0f6c11-f938-4030-89c6-4411ad2fb5f3",
+      "task_id": "19492eee-b2e5-44e4-b441-645f0c280c7f",
+      "user_id": "424d7449-16bd-462f-b063-174735d8c870",
+      "content": "ohk",
+      "created_at": "2026-03-20T10:34:39.482Z"
+    }
+  ],
+  "attachments": [
+    {
+      "id": "ec9bea73-df52-471b-999f-55b16ebe8df7",
+      "task_id": "19492eee-b2e5-44e4-b441-645f0c280c7f",
+      "file_url": "https://wutlmnedvycjrrgkaxau.supabase.co/storage/v1/object/public/task-attachments/19492eee-b2e5-44e4-b441-645f0c280c7f/0.9659288931617335.pdf",
+      "file_name": "Invoice-f4ec1a89.pdf",
+      "uploaded_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "created_at": "2026-03-20T10:37:47.632Z"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "name": "krishna",
+      "created_at": "2026-03-20T09:18:01.669Z"
+    },
+    {
+      "id": "424d7449-16bd-462f-b063-174735d8c870",
+      "name": "Demo",
+      "created_at": "2026-03-20T09:32:16.162Z"
+    },
+    {
+      "id": "7074ad4e-22f4-4c30-8e0c-ec9aa1c5a445",
+      "name": "john",
+      "created_at": "2026-03-20T11:26:16.411Z"
+    }
+  ],
+  "teams": [
+    {
+      "id": "d677668c-ef0d-422e-b273-f8e3aa328c9b",
+      "name": "Backend Team",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "created_at": "2026-03-20T10:21:11.678Z"
+    },
+    {
+      "id": "d7da2ede-f1a0-40b4-b8a9-f2c49b29d551",
+      "name": "Frontend Team ",
+      "created_by": "424d7449-16bd-462f-b063-174735d8c870",
+      "created_at": "2026-03-20T11:07:02.635Z"
+    },
+    {
+      "id": "3a1af1ce-4569-4dad-8e04-aea199a79476",
+      "name": "UI/UX Team",
+      "created_by": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "created_at": "2026-03-20T11:19:25.810Z"
+    },
+    {
+      "id": "85b5f544-28ab-4ee6-8bfe-ee07d210ffb4",
+      "name": "Flutter Developer Team",
+      "created_by": "7074ad4e-22f4-4c30-8e0c-ec9aa1c5a445",
+      "created_at": "2026-03-20T12:41:44.870Z"
+    }
+  ],
+  "team_members": [
+    {
+      "id": "f537cb20-9df3-431a-8483-99c901e7119f",
+      "team_id": "d677668c-ef0d-422e-b273-f8e3aa328c9b",
+      "user_id": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "role": "admin",
+      "joined_at": "2026-03-20T10:21:11.754Z"
+    },
+    {
+      "id": "81939d2e-0046-4a50-b063-12846ba09f20",
+      "team_id": "d677668c-ef0d-422e-b273-f8e3aa328c9b",
+      "user_id": "424d7449-16bd-462f-b063-174735d8c870",
+      "role": "member",
+      "joined_at": "2026-03-20T10:33:21.606Z"
+    },
+    {
+      "id": "333c0cbd-1431-495c-a40e-b2f9b3390a1f",
+      "team_id": "d7da2ede-f1a0-40b4-b8a9-f2c49b29d551",
+      "user_id": "424d7449-16bd-462f-b063-174735d8c870",
+      "role": "admin",
+      "joined_at": "2026-03-20T11:07:02.692Z"
+    },
+    {
+      "id": "15279aa0-1a78-4d9f-8b8f-c68519b0c9fd",
+      "team_id": "3a1af1ce-4569-4dad-8e04-aea199a79476",
+      "user_id": "40267bd2-92b3-4116-9bbe-e9296904d93f",
+      "role": "admin",
+      "joined_at": "2026-03-20T11:19:25.891Z"
+    },
+    {
+      "id": "5cf50e2d-7d01-4a59-bb81-139941a59228",
+      "team_id": "3a1af1ce-4569-4dad-8e04-aea199a79476",
+      "user_id": "424d7449-16bd-462f-b063-174735d8c870",
+      "role": "member",
+      "joined_at": "2026-03-20T11:20:27.036Z"
+    },
+    {
+      "id": "8afe81df-fa1f-4751-aa07-3d18cc26c131",
+      "team_id": "d7da2ede-f1a0-40b4-b8a9-f2c49b29d551",
+      "user_id": "7074ad4e-22f4-4c30-8e0c-ec9aa1c5a445",
+      "role": "member",
+      "joined_at": "2026-03-20T11:26:39.456Z"
+    },
+    {
+      "id": "a112dd4b-3988-440a-9982-beca4e23ad66",
+      "team_id": "85b5f544-28ab-4ee6-8bfe-ee07d210ffb4",
+      "user_id": "7074ad4e-22f4-4c30-8e0c-ec9aa1c5a445",
+      "role": "admin",
+      "joined_at": "2026-03-20T12:41:45.017Z"
+    },
+    {
+      "id": "685227ba-68c2-4ab9-a2d1-bc55088fe465",
+      "team_id": "85b5f544-28ab-4ee6-8bfe-ee07d210ffb4",
+      "user_id": "424d7449-16bd-462f-b063-174735d8c870",
+      "role": "member",
+      "joined_at": "2026-03-20T12:44:28.861Z"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Beauty"
+    },
+    {
+      "name": "Books"
+    },
+    {
+      "name": "Electronics"
+    },
+    {
+      "name": "Fashion"
+    },
+    {
+      "name": "Groceries"
+    },
+    {
+      "name": "Home"
+    },
+    {
+      "name": "Toys"
+    }
+  ],
+  "clients": [
+    {
+      "id": "eeea13da-91f4-4109-92ba-48c1adc01ccf",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "name": "Rahul Sharma",
+      "email": "rahul.sharma@gmail.com",
+      "phone": "+91 98765 43210",
+      "company": "TechNova Solutions",
+      "created_at": "2026-03-19T08:10:35.781Z"
+    },
+    {
+      "id": "2f515d92-10c2-4cc6-949d-b0bc1e5b0c5a",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "name": "Mohit",
+      "email": "mohit@gmail.com",
+      "phone": "+91 9999300000",
+      "company": "codage habitation",
+      "created_at": "2026-03-19T07:28:50.241Z"
+    },
+    {
+      "id": "c74b1339-9adb-4127-bf96-844a5e6c4539",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "name": "Priya Patel",
+      "email": "priya.patel@yahoo.com",
+      "phone": "+91 91234 56789",
+      "company": "Patel Enterprises",
+      "created_at": "2026-03-19T08:12:22.823Z"
+    },
+    {
+      "id": "e2f2c387-ec40-4bc6-8519-a8e5a665a4b0",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "name": "Amit Verma",
+      "email": "amit.verma@outlook.com",
+      "phone": "+91 99887 66554",
+      "company": "Verma Digital",
+      "created_at": "2026-03-19T08:12:45.006Z"
+    },
+    {
+      "id": "1e75df47-c929-4562-9e11-9174c33c31e9",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "name": "Arjun Mehta",
+      "email": "arjun.mehta@company.com",
+      "phone": "+91 90123 45678",
+      "company": "Mehta Consultancy",
+      "created_at": "2026-03-19T08:37:45.684Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1772454547566",
+      "userId": 19,
+      "productId": 97,
+      "rating": 5,
+      "comment": "good product",
+      "createdAt": "2026-03-02T06:59:07.567Z"
+    },
+    {
+      "id": "rev-1772456147982",
+      "userId": 19,
+      "productId": 89,
+      "rating": 5,
+      "comment": "good product",
+      "createdAt": "2026-03-02T07:25:47.982Z"
+    },
+    {
+      "id": "rev-1772538591879",
+      "userId": 20,
+      "productId": 67,
+      "rating": 5,
+      "comment": "best quality",
+      "createdAt": "2026-03-03T06:19:51.879Z"
+    },
+    {
+      "id": "rev-1772694535777",
+      "userId": 22,
+      "productId": 98,
+      "rating": 4,
+      "comment": "Nice ",
+      "createdAt": "2026-03-05T01:38:55.777Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": "c1ef7c28-f62e-45d9-b375-5e9393a57c5f",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "client_id": "c74b1339-9adb-4127-bf96-844a5e6c4539",
+      "name": "Portfolio Website",
+      "description": "Personal portfolio with projects showcase and contact form.",
+      "budget": "1000",
+      "deadline": "2026-03-29T18:30:00.000Z",
+      "status": "completed",
+      "created_at": "2026-03-19T08:52:26.466Z"
+    },
+    {
+      "id": "fa7a5434-afb3-40f6-afd9-bb9cf05d40d4",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "client_id": "e2f2c387-ec40-4bc6-8519-a8e5a665a4b0",
+      "name": "Mobile App UI Design",
+      "description": "Design modern UI screens for a food delivery mobile application.",
+      "budget": "800",
+      "deadline": "2026-04-09T18:30:00.000Z",
+      "status": "pending",
+      "created_at": "2026-03-19T08:53:46.909Z"
+    },
+    {
+      "id": "4c32d12f-023b-4ddf-87c6-fcc333f1e83b",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "client_id": "2f515d92-10c2-4cc6-949d-b0bc1e5b0c5a",
+      "name": "Admin Dashboard",
+      "description": "Build a dashboard with analytics, charts, and user management.",
+      "budget": "1500",
+      "deadline": "2026-04-30T18:30:00.000Z",
+      "status": "in-progress",
+      "created_at": "2026-03-19T08:54:56.771Z"
+    },
+    {
+      "id": "8e05f60a-957b-4b7d-b978-0b8ff77d560a",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "client_id": "eeea13da-91f4-4109-92ba-48c1adc01ccf",
+      "name": "E-commerce Website",
+      "description": "Build a responsive e-commerce website with cart, payment integration, and admin dashboard.",
+      "budget": "12000",
+      "deadline": "2026-03-20T18:30:00.000Z",
+      "status": "completed",
+      "created_at": "2026-03-19T08:51:19.214Z"
+    },
+    {
+      "id": "11afa5c6-b2f3-45ce-a127-9d66732dd9fe",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "client_id": "1e75df47-c929-4562-9e11-9174c33c31e9",
+      "name": "SEO Optimization",
+      "description": "Improve website SEO, keywords, and performance optimization.",
+      "budget": "300",
+      "deadline": "2026-04-21T18:30:00.000Z",
+      "status": "pending",
+      "created_at": "2026-03-19T08:56:08.942Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "f4ec1a89-2026-4a44-89bf-26973f2b0e68",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "project_id": "c1ef7c28-f62e-45d9-b375-5e9393a57c5f",
+      "amount": "1000",
+      "status": "paid",
+      "date": "2026-03-16T18:30:00.000Z",
+      "created_at": "2026-03-19T08:57:04.115Z"
+    },
+    {
+      "id": "e3bc283b-0fc6-4de3-a826-aba10451b3ef",
+      "user_id": "6363cc06-fcae-4b2d-a820-1776ce5003d6",
+      "project_id": "8e05f60a-957b-4b7d-b978-0b8ff77d560a",
+      "amount": "12000",
+      "status": "paid",
+      "date": "2026-03-02T18:30:00.000Z",
+      "created_at": "2026-03-19T09:26:14.575Z"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "addr-1772456049991",
+      "userId": 19,
+      "name": "Krishna Kavathiya",
+      "phone": "9016140333",
+      "street": "101 sarthak avenue, nikol ",
+      "city": "ahmedabad",
+      "state": "gujrat",
+      "zip": "380000",
+      "country": "India",
+      "type": "Home",
+      "isDefault": false,
+      "createdAt": "2026-03-02T07:24:09.991Z",
+      "updatedAt": "2026-03-02T07:24:09.991Z"
+    },
+    {
+      "id": "addr-1772542701357",
+      "userId": 21,
+      "name": "Krishna Kavathiya",
+      "phone": "9999900000",
+      "street": "205 madhav odhav",
+      "city": "ahmedabad",
+      "state": "Gujrat",
+      "zip": "380000",
+      "country": "India",
+      "type": "Home",
+      "isDefault": false,
+      "createdAt": "2026-03-03T07:28:21.357Z",
+      "updatedAt": "2026-03-03T07:28:21.357Z"
+    },
+    {
+      "id": "addr-1772694606886",
+      "userId": 22,
+      "name": "Test",
+      "phone": "9999999999",
+      "street": "200, bhadaj circle ",
+      "city": "Ahmedabad ",
+      "state": "Gujarat ",
+      "zip": "380000",
+      "country": "India",
+      "type": "Home",
+      "isDefault": false,
+      "createdAt": "2026-03-05T01:40:06.886Z",
+      "updatedAt": "2026-03-05T01:40:06.886Z"
+    },
+    {
+      "id": "addr-1773040747696",
+      "userId": 20,
+      "name": "Kishu Kavathiya",
+      "phone": "9999900000",
+      "street": "iscon cross road",
+      "city": "ahmedabad",
+      "state": "gujrat",
+      "zip": "380002",
+      "country": "india",
+      "type": "Home",
+      "isDefault": false,
+      "createdAt": "2026-03-09T01:49:07.696Z",
+      "updatedAt": "2026-03-09T01:49:07.696Z"
+    },
+    {
+      "id": "addr-1773041313813",
+      "userId": 20,
+      "name": "Kishu Kavathiya",
+      "phone": "9909011122",
+      "street": "Nikol",
+      "city": "Ahmedabad",
+      "state": "Gujrat",
+      "zip": "380002",
+      "country": "India",
+      "type": "Work",
+      "isDefault": false,
+      "createdAt": "2026-03-09T01:58:33.814Z",
+      "updatedAt": "2026-03-09T01:58:33.814Z"
+    },
+    {
+      "id": "addr-1773125302411",
+      "userId": 23,
+      "name": "Michael Johnson",
+      "phone": "9999900000",
+      "street": "18 Shanti Nagar",
+      "city": "Ahmedabad",
+      "state": "Gujrat",
+      "zip": "380000",
+      "country": "India",
+      "type": "Work",
+      "isDefault": false,
+      "createdAt": "2026-03-10T01:18:22.411Z",
+      "updatedAt": "2026-03-10T01:18:22.411Z"
+    },
+    {
+      "id": "addr-1773379483097",
+      "userId": 25,
+      "name": "krishna",
+      "phone": "9016140333",
+      "street": "bhadaj circle ",
+      "city": "ahmedabad",
+      "state": "gujrat",
+      "zip": "380000",
+      "country": "India",
+      "type": "Work",
+      "isDefault": false,
+      "createdAt": "2026-03-12T23:54:43.097Z",
+      "updatedAt": "2026-03-12T23:54:43.097Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-1772456067981",
+      "userId": 19,
+      "orderNumber": "ORD-1772456067980-PKYNLW",
+      "total": 622.825,
+      "subtotal": 520.75,
+      "tax": 52.075,
+      "shipping": 50,
+      "status": "DELIVERED",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1772456049991",
+      "items": [
+        {
+          "id": "item-1772456067980-k9hs",
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRNRfjuu1p30E1aXLLKQP-9Ijvkwkgl-OVfm5SUrYlgiOjagQI06OvQJnCH9iyMEgURMevQPLlWlOYtgj5Q4_DIzZem3TRwSpKhD1q4jqKmUFvQoRgSrVWa6g",
+          "price": 296.65,
+          "title": "Garnier Micellar Cleansing Water",
+          "quantity": 1,
+          "productId": 97
+        },
+        {
+          "id": "item-1772456067980-u9yj",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQh9P3-vEECfoxnZkUpw5-lie8U0pdZgmK0RE15OXBEFHS-up4ylUszY_sKEyNIaTsD76YY1fOOafyEo6QoMxoWzBYfDJJhaRlW7BmplG3LWwvYx4qimeDt5NFU43t1XRlY0jEB_2s&usqp=CAc",
+          "price": 224.1,
+          "title": "Lakme Eyeconic Kajal",
+          "quantity": 1,
+          "productId": 104
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1772456067981",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-02T12:54:27.981Z"
+        },
+        {
+          "id": "sh-1772456858101",
+          "note": "Status updated to SHIPPED",
+          "status": "SHIPPED",
+          "createdAt": "2026-03-02T13:07:38.101Z"
+        },
+        {
+          "id": "sh-1772456870661",
+          "note": "Status updated to DELIVERED",
+          "status": "DELIVERED",
+          "createdAt": "2026-03-02T13:07:50.661Z"
+        },
+        {
+          "id": "sh-1772456889423",
+          "note": "Status updated to SHIPPED",
+          "status": "SHIPPED",
+          "createdAt": "2026-03-02T13:08:09.423Z"
+        },
+        {
+          "id": "sh-1772542858162",
+          "note": "Status updated to DELIVERED",
+          "status": "DELIVERED",
+          "createdAt": "2026-03-03T13:00:58.162Z"
+        }
+      ],
+      "createdAt": "2026-03-02T07:24:27.981Z",
+      "updatedAt": "2026-03-03T07:30:58.162Z"
+    },
+    {
+      "id": "ord-1772538540110",
+      "userId": 20,
+      "orderNumber": "ORD-1772538540110-FH5HPF",
+      "total": 1209.12,
+      "subtotal": 1099.2,
+      "tax": 109.92,
+      "shipping": 0,
+      "status": "DELIVERED",
+      "paymentMethod": "UPI",
+      "shippingAddressId": "addr-1772538441538",
+      "items": [
+        {
+          "id": "item-1772538540110-35gf",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSpmvmL0yMpJZ5BQyKWEd0vtFiUvebQK_99vlYGYY0mbb4hY-HNlmM9_Wjjb-mqX2_c2Ci2HcW6_xst68CTjBq2oNLnXa5pVIW6JWX0PuOobT1z4BPeNmg_",
+          "price": 639.2,
+          "title": "Classic Gold Hoop Earrings",
+          "quantity": 1,
+          "productId": 103
+        },
+        {
+          "id": "item-1772538540110-6hgx",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTJjYfWv0RRpHGB3bh8Nm4pyOmxvLYPcepXsglrrWWSi6CQPoKyEBowGiGbnmb4tG6BQHyGa8tKDmFfttghrI_XwzIwVrbIUXJqmP3GgKqH9ee-b2g7-ze6",
+          "price": 460,
+          "title": "Plum Green Tea Night Gel",
+          "quantity": 1,
+          "productId": 99
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1772538540110",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-03T11:49:00.110Z"
+        },
+        {
+          "id": "sh-1773125351740",
+          "note": "Status updated to DELIVERED",
+          "status": "DELIVERED",
+          "createdAt": "2026-03-10T06:49:11.740Z"
+        }
+      ],
+      "createdAt": "2026-03-03T06:19:00.110Z",
+      "updatedAt": "2026-03-10T01:19:11.740Z"
+    },
+    {
+      "id": "ord-1772542791685",
+      "userId": 21,
+      "orderNumber": "ORD-1772542791684-WKFM0K",
+      "total": 465.8,
+      "subtotal": 378,
+      "tax": 37.8,
+      "shipping": 50,
+      "status": "SHIPPED",
+      "paymentMethod": "CREDIT_CARD",
+      "shippingAddressId": "addr-1772542701357",
+      "items": [
+        {
+          "id": "item-1772542791684-f4iv",
+          "image": "https://m.media-amazon.com/images/I/61sq3-zlFnL._SL1500_.jpg",
+          "price": 378,
+          "title": "The Power of Now",
+          "quantity": 1,
+          "productId": 50
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1772542791685",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-03T12:59:51.685Z"
+        },
+        {
+          "id": "sh-1772542854653",
+          "note": "Status updated to SHIPPED",
+          "status": "SHIPPED",
+          "createdAt": "2026-03-03T13:00:54.653Z"
+        }
+      ],
+      "createdAt": "2026-03-03T07:29:51.685Z",
+      "updatedAt": "2026-03-03T07:30:54.653Z"
+    },
+    {
+      "id": "ord-1772613167045",
+      "userId": 19,
+      "orderNumber": "ORD-1772613167044-HZ9WAE",
+      "total": 14701.5,
+      "subtotal": 13365,
+      "tax": 1336.5,
+      "shipping": 0,
+      "status": "DELIVERED",
+      "paymentMethod": "CREDIT_CARD",
+      "shippingAddressId": "addr-1772456049991",
+      "items": [
+        {
+          "id": "item-1772613167044-ae9i",
+          "image": "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwcc454c2d/images/Titan/Catalog/90218SM02_1.jpg?sw=600&sh=600",
+          "price": 13365,
+          "title": "Analog Watch",
+          "quantity": 1,
+          "productId": 62
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1772613167045",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-04T08:32:47.045Z"
+        },
+        {
+          "id": "sh-1772613228008",
+          "note": "Status updated to SHIPPED",
+          "status": "SHIPPED",
+          "createdAt": "2026-03-04T08:33:48.008Z"
+        },
+        {
+          "id": "sh-1773125373294",
+          "note": "Status updated to DELIVERED",
+          "status": "DELIVERED",
+          "createdAt": "2026-03-10T06:49:33.294Z"
+        }
+      ],
+      "createdAt": "2026-03-04T03:02:47.045Z",
+      "updatedAt": "2026-03-10T01:19:33.294Z"
+    },
+    {
+      "id": "ord-1772615266306",
+      "userId": 19,
+      "orderNumber": "ORD-1772615266306-89Z7G8",
+      "total": 556,
+      "subtotal": 460,
+      "tax": 46,
+      "shipping": 50,
+      "status": "DELIVERED",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1772456049991",
+      "items": [
+        {
+          "id": "item-1772615266306-a0vh",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTJjYfWv0RRpHGB3bh8Nm4pyOmxvLYPcepXsglrrWWSi6CQPoKyEBowGiGbnmb4tG6BQHyGa8tKDmFfttghrI_XwzIwVrbIUXJqmP3GgKqH9ee-b2g7-ze6",
+          "price": 460,
+          "title": "Plum Green Tea Night Gel",
+          "quantity": 1,
+          "productId": 99
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1772615266306",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-04T09:07:46.306Z"
+        },
+        {
+          "id": "sh-1772615316923",
+          "note": "Status updated to DELIVERED",
+          "status": "DELIVERED",
+          "createdAt": "2026-03-04T09:08:36.923Z"
+        },
+        {
+          "id": "sh-1772615318486",
+          "note": "Status updated to SHIPPED",
+          "status": "SHIPPED",
+          "createdAt": "2026-03-04T09:08:38.486Z"
+        },
+        {
+          "id": "sh-1772693416588",
+          "note": "Status updated to DELIVERED",
+          "status": "DELIVERED",
+          "createdAt": "2026-03-05T06:50:16.588Z"
+        }
+      ],
+      "createdAt": "2026-03-04T03:37:46.306Z",
+      "updatedAt": "2026-03-05T01:20:16.588Z"
+    },
+    {
+      "id": "ord-1772694633700",
+      "userId": 22,
+      "orderNumber": "ORD-1772694633700-UUROCD",
+      "total": 247.01,
+      "subtotal": 179.1,
+      "tax": 17.91,
+      "shipping": 50,
+      "status": "PENDING",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1772694606886",
+      "items": [
+        {
+          "id": "item-1772694633700-8n8s",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTCuqR5Sq21Fg5_ZEbg7jIcWTgDEPhU80mbseIcxdL9b_WuXJu0wjLuOpzONtG3FQKOIuQmZXdNyG2hsQjA-MC9z5dDxlPU_6gZA9QFPOvJH-sc8aUqyKHiIdc20P9-jGGa_u9yxSg&usqp=CAc",
+          "price": 179.1,
+          "title": "Himalaya Neem Face Pack",
+          "quantity": 1,
+          "productId": 98
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1772694633700",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-05T07:10:33.700Z"
+        }
+      ],
+      "createdAt": "2026-03-05T01:40:33.700Z",
+      "updatedAt": "2026-03-05T01:40:33.700Z"
+    },
+    {
+      "id": "ord-1773124892827",
+      "userId": 19,
+      "orderNumber": "ORD-1773124892827-IV25WY",
+      "total": 753.01,
+      "subtotal": 639.1,
+      "tax": 63.91,
+      "shipping": 50,
+      "status": "CANCELLED",
+      "paymentMethod": "UPI",
+      "shippingAddressId": "addr-1772456049991",
+      "items": [
+        {
+          "id": "item-1773124892827-9wvu",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTJjYfWv0RRpHGB3bh8Nm4pyOmxvLYPcepXsglrrWWSi6CQPoKyEBowGiGbnmb4tG6BQHyGa8tKDmFfttghrI_XwzIwVrbIUXJqmP3GgKqH9ee-b2g7-ze6",
+          "price": 460,
+          "title": "Plum Green Tea Night Gel",
+          "quantity": 1,
+          "productId": 99
+        },
+        {
+          "id": "item-1773124892827-sjtq",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTCuqR5Sq21Fg5_ZEbg7jIcWTgDEPhU80mbseIcxdL9b_WuXJu0wjLuOpzONtG3FQKOIuQmZXdNyG2hsQjA-MC9z5dDxlPU_6gZA9QFPOvJH-sc8aUqyKHiIdc20P9-jGGa_u9yxSg&usqp=CAc",
+          "price": 179.1,
+          "title": "Himalaya Neem Face Pack",
+          "quantity": 1,
+          "productId": 98
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1773124892827",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-10T06:41:32.827Z"
+        },
+        {
+          "id": "sh-1773379552414",
+          "note": "Status updated to CANCELLED",
+          "status": "CANCELLED",
+          "createdAt": "2026-03-13T05:25:52.414Z"
+        }
+      ],
+      "createdAt": "2026-03-10T01:11:32.827Z",
+      "updatedAt": "2026-03-12T23:55:52.414Z"
+    },
+    {
+      "id": "ord-1773125311074",
+      "userId": 23,
+      "orderNumber": "ORD-1773125311074-5FFX1Y",
+      "total": 83599,
+      "subtotal": 75999,
+      "tax": 7599.9,
+      "shipping": 0,
+      "status": "PENDING",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1773125302411",
+      "items": [
+        {
+          "id": "item-1773125311074-dhzs",
+          "image": "https://smpl-prod-app-v2.gumlet.io/product_img/14501/1694714797_wP3.jpg",
+          "price": 75999.05,
+          "title": "IPhone 15 128GB",
+          "quantity": 1,
+          "productId": 36
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1773125311074",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-10T06:48:31.074Z"
+        }
+      ],
+      "createdAt": "2026-03-10T01:18:31.074Z",
+      "updatedAt": "2026-03-10T01:18:31.074Z"
+    },
+    {
+      "id": "ord-1773125777765",
+      "userId": 23,
+      "orderNumber": "ORD-1773125777765-E9T6TZ",
+      "total": 236.065,
+      "subtotal": 169.15,
+      "tax": 16.915,
+      "shipping": 50,
+      "status": "PENDING",
+      "paymentMethod": "UPI",
+      "shippingAddressId": "addr-1773125302411",
+      "items": [
+        {
+          "id": "item-1773125777765-pyoj",
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQlHKY5IQun0_M2vhWvm6wBzskPcjxPb8BTXWQDkKOCf-cTjmAA7ljobYnFdMlUQpfTdGG4OvYzJ6HKZ2uJNIfQVU9diAtU69JNZM3BWOIRiBOKGX0joOIGholobMu1JLlVBvQVzg&usqp=CAc",
+          "price": 169.15,
+          "title": "Maybelline Color Show Nail Paint (Red Punch)",
+          "quantity": 1,
+          "productId": 102
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1773125777765",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-10T06:56:17.765Z"
+        }
+      ],
+      "createdAt": "2026-03-10T01:26:17.765Z",
+      "updatedAt": "2026-03-10T01:26:17.765Z"
+    },
+    {
+      "id": "ord-1773379490446",
+      "userId": 25,
+      "orderNumber": "ORD-1773379490445-387LQP",
+      "total": 1781.01,
+      "subtotal": 1619.1,
+      "tax": 161.91,
+      "shipping": 0,
+      "status": "PENDING",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1773379483097",
+      "items": [
+        {
+          "id": "item-1773379490446-pizf",
+          "image": "https://m.media-amazon.com/images/I/71sPy7nILUL._SL1500_.jpg",
+          "price": 1619.1000000000001,
+          "title": "Wall Clock",
+          "quantity": 1,
+          "productId": 67
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1773379490446",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-13T05:24:50.446Z"
+        }
+      ],
+      "createdAt": "2026-03-12T23:54:50.446Z",
+      "updatedAt": "2026-03-12T23:54:50.446Z"
+    },
+    {
+      "id": "ord-1773379975909",
+      "userId": 25,
+      "orderNumber": "ORD-1773379975909-TJ7JSQ",
+      "total": 313.12,
+      "subtotal": 239.2,
+      "tax": 23.92,
+      "shipping": 50,
+      "status": "PENDING",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1773379483097",
+      "items": [
+        {
+          "id": "item-1773379975909-f2vq",
+          "image": "https://m.media-amazon.com/images/I/61IxJuRI39L._SL1000_.jpg",
+          "price": 239.20000000000002,
+          "title": "Think and Grow Rich",
+          "quantity": 1,
+          "productId": 51
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1773379975909",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-03-13T05:32:55.909Z"
+        }
+      ],
+      "createdAt": "2026-03-13T00:02:55.909Z",
+      "updatedAt": "2026-03-13T00:02:55.909Z"
+    },
+    {
+      "id": "ord-1777202203817",
+      "userId": 19,
+      "orderNumber": "ORD-1777202203816-VX5617",
+      "total": 16757.6,
+      "subtotal": 15234.2,
+      "tax": 1523.42,
+      "shipping": 0,
+      "status": "SHIPPED",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1772456049991",
+      "items": [
+        {
+          "id": "item-1777202203816-q4kf",
+          "image": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_750,h_750/global/633016/82/mod01/fnd/IND/fmt/png/PUMA-Class-Pinnacle-Men's-Cotton-Hoodie",
+          "price": 1869.1499999999999,
+          "title": "Men Hoodie",
+          "quantity": 1,
+          "productId": 60
+        },
+        {
+          "id": "item-1777202203816-izf7",
+          "image": "https://www.titan.co.in/dw/image/v2/BKDD_PRD/on/demandware.static/-/Sites-titan-master-catalog/default/dwcc454c2d/images/Titan/Catalog/90218SM02_1.jpg?sw=600&sh=600",
+          "price": 13365,
+          "title": "Analog Watch",
+          "quantity": 1,
+          "productId": 62
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1777202203817",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-04-26T11:16:43.817Z"
+        },
+        {
+          "id": "sh-1777202411852",
+          "note": "Status updated to SHIPPED",
+          "status": "SHIPPED",
+          "createdAt": "2026-04-26T11:20:11.852Z"
+        }
+      ],
+      "createdAt": "2026-04-26T05:46:43.817Z",
+      "updatedAt": "2026-04-26T05:50:11.852Z"
+    },
+    {
+      "id": "ord-1779369490468",
+      "userId": 19,
+      "orderNumber": "ORD-1779369490467-BVYCDF",
+      "total": 51105,
+      "subtotal": 46459.1,
+      "tax": 4645.91,
+      "shipping": 0,
+      "status": "PENDING",
+      "paymentMethod": "COD",
+      "shippingAddressId": "addr-1772456049991",
+      "items": [
+        {
+          "id": "item-1779369490468-5067",
+          "image": "https://m.media-amazon.com/images/I/61AsNTuJ6mL._SL1500_.jpg",
+          "price": 46459.08,
+          "title": "OnePlus 15R",
+          "quantity": 1,
+          "productId": 105
+        }
+      ],
+      "statusHistory": [
+        {
+          "id": "sh-1779369490468",
+          "note": "Order initiated via decentralized gateway",
+          "status": "PENDING",
+          "createdAt": "2026-05-21T13:18:10.468Z"
+        }
+      ],
+      "createdAt": "2026-05-21T07:48:10.468Z",
+      "updatedAt": "2026-05-21T07:48:10.468Z"
+    }
+  ],
+  "wishlist": [
+    {
+      "id": "wish-1772454669151",
+      "userId": 19,
+      "productId": 102,
+      "createdAt": "2026-03-02T07:01:09.151Z"
+    },
+    {
+      "id": "wish-1772454672865",
+      "userId": 19,
+      "productId": 104,
+      "createdAt": "2026-03-02T07:01:12.865Z"
+    },
+    {
+      "id": "wish-1772687795096",
+      "userId": 19,
+      "productId": 51,
+      "createdAt": "2026-03-04T23:46:35.096Z"
+    },
+    {
+      "id": "wish-1772687800537",
+      "userId": 19,
+      "productId": 59,
+      "createdAt": "2026-03-04T23:46:40.537Z"
+    },
+    {
+      "id": "wish-1772687807190",
+      "userId": 19,
+      "productId": 86,
+      "createdAt": "2026-03-04T23:46:47.190Z"
+    },
+    {
+      "id": "wish-1772694650551",
+      "userId": 22,
+      "productId": 104,
+      "createdAt": "2026-03-05T01:40:50.551Z"
+    },
+    {
+      "id": "wish-1773041106450",
+      "userId": 20,
+      "productId": 101,
+      "createdAt": "2026-03-09T01:55:06.450Z"
+    },
+    {
+      "id": "wish-1773294243678",
+      "userId": 24,
+      "productId": 28,
+      "createdAt": "2026-03-12T00:14:03.678Z"
+    },
+    {
+      "id": "wish-1775055619852",
+      "userId": 19,
+      "productId": 103,
+      "createdAt": "2026-04-01T09:30:19.852Z"
+    },
+    {
+      "id": "wish-1775055631230",
+      "userId": 19,
+      "productId": 97,
+      "createdAt": "2026-04-01T09:30:31.230Z"
+    },
+    {
+      "id": "wish-1779369410977",
+      "userId": 19,
+      "productId": 99,
+      "createdAt": "2026-05-21T07:46:50.977Z"
+    }
+  ],
+  "carts": [
+    {
+      "userId": 11,
+      "items": [],
+      "updatedAt": "2026-03-02T05:10:17.621Z"
+    },
+    {
+      "userId": 17,
+      "items": [
+        {
+          "id": "ci-1773298479399",
+          "price": 0,
+          "quantity": 1,
+          "productId": 102
+        }
+      ],
+      "updatedAt": "2026-03-12T01:24:39.399Z"
+    },
+    {
+      "userId": 20,
+      "items": [
+        {
+          "id": "ci-1773041093556",
+          "price": 0,
+          "quantity": 2,
+          "productId": 50
+        }
+      ],
+      "updatedAt": "2026-03-09T06:06:26.249Z"
+    },
+    {
+      "userId": 21,
+      "items": [],
+      "updatedAt": "2026-03-03T07:29:51.957Z"
+    },
+    {
+      "userId": 22,
+      "items": [
+        {
+          "id": "ci-1772695036919",
+          "price": 0,
+          "quantity": 1,
+          "productId": 82
+        }
+      ],
+      "updatedAt": "2026-03-05T01:47:16.919Z"
+    },
+    {
+      "userId": 23,
+      "items": [],
+      "updatedAt": "2026-03-10T01:26:17.834Z"
+    },
+    {
+      "userId": 24,
+      "items": [],
+      "updatedAt": "2026-03-12T00:22:38.651Z"
+    },
+    {
+      "userId": 25,
+      "items": [],
+      "updatedAt": "2026-03-13T00:02:56.005Z"
+    },
+    {
+      "userId": 26,
+      "items": [],
+      "updatedAt": "2026-04-30T13:29:18.196Z"
+    },
+    {
+      "userId": 19,
+      "items": [],
+      "updatedAt": "2026-05-21T07:48:11.903Z"
+    },
+    {
+      "userId": 27,
+      "items": [],
+      "updatedAt": "2026-05-21T08:03:11.095Z"
+    }
+  ]
+}

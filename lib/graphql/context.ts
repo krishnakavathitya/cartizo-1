@@ -69,7 +69,7 @@ export function requireAuth(context: GraphQLContext) {
 
 export function requireAdmin(context: GraphQLContext) {
   const user = requireAuth(context);
-  if (user.role !== 'admin') {
+  if (user.role?.toUpperCase() !== 'ADMIN') {
     throw new Error('Admin access required');
   }
   return user;

@@ -2,7 +2,8 @@ import { Pool } from 'pg';
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : { rejectUnauthorized: false },
+  ssl: { rejectUnauthorized: false },
+  max: 3, // Limit connection pool size to prevent exhausting DB connections in hot-reload/serverless environments
 });
 
 export const getDatabase = () => {
