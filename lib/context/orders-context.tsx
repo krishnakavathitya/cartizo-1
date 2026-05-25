@@ -48,6 +48,14 @@ export interface LocalOrder {
 interface OrdersContextType {
   orders: LocalOrder[];
   placeOrder: (input: { addressId: string; paymentMethod: string }) => Promise<any>;
+  initiateRazorpayPayment: (addressId: string) => Promise<any>;
+  verifyAndCreateOrder: (input: {
+    addressId: string;
+    paymentMethod: string;
+    razorpayOrderId: string;
+    razorpayPaymentId: string;
+    razorpaySignature: string;
+  }) => Promise<any>;
   totalOrders: number;
   loading: boolean;
   isLoaded: boolean;
@@ -108,6 +116,38 @@ const CREATE_ORDER = gql`
   }
 `;
 
+const INITIATE_RAZORPAY_PAYMENT = gql`
+  mutation InitiateRazorpayPayment($addressId: ID!) {
+    initiateRazorpayPayment(addressId: $addressId) {
+      id
+      amount
+      currency
+    }
+  }
+`;
+
+const VERIFY_AND_CREATE_ORDER = gql`
+  mutation VerifyAndCreateOrder(
+    $addressId: ID!
+    $paymentMethod: PaymentMethod!
+    $razorpayOrderId: String!
+    $razorpayPaymentId: String!
+    $razorpaySignature: String!
+  ) {
+    verifyAndCreateOrder(
+      addressId: $addressId
+      paymentMethod: $paymentMethod
+      razorpayOrderId: $razorpayOrderId
+      razorpayPaymentId: $razorpayPaymentId
+      razorpaySignature: $razorpaySignature
+    ) {
+      id
+      orderNumber
+      status
+    }
+  }
+`;
+
 const OrdersContext = createContext<OrdersContextType | undefined>(undefined);
 
 export function OrdersProvider({ children }: { children: ReactNode }) {
@@ -120,6 +160,12 @@ export function OrdersProvider({ children }: { children: ReactNode }) {
     onCompleted: () => refetch(),
   });
 
+  const [initiateRazorpayPaymentMutation] = useMutation(INITIATE_RAZORPAY_PAYMENT);
+
+  const [verifyAndCreateOrderMutation] = useMutation(VERIFY_AND_CREATE_ORDER, {
+    onCompleted: () => refetch(),
+  });
+
   const orders = data?.orders || [];
   const totalOrders = orders.length;
 
@@ -128,6 +174,8 @@ export function OrdersProvider({ children }: { children: ReactNode }) {
       value={{
         orders,
         placeOrder: (input) => createOrderMutation({ variables: { input } }),
+        initiateRazorpayPayment: (addressId) => initiateRazorpayPaymentMutation({ variables: { addressId } }),
+        verifyAndCreateOrder: (input) => verifyAndCreateOrderMutation({ variables: input }),
         totalOrders,
         loading,
         isLoaded: !loading,

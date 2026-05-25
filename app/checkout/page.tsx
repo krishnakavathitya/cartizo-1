@@ -8,11 +8,30 @@ import { useAddresses, Address } from '@/lib/context/address-context';
 import { useRouter } from 'next/navigation';
 import { MapPin, X, ChevronLeft, CreditCard, Wallet, Banknote, CheckCircle2, ShieldCheck, PartyPopper, ArrowRight } from 'lucide-react';
 
+const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    if (typeof window === 'undefined') {
+      resolve(false);
+      return;
+    }
+    if ((window as any).Razorpay) {
+      resolve(true);
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.async = true;
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
 export default function CheckoutPage() {
   const [step, setStep] = useState(1);
   const { user } = useAuth();
   const { items, totalPrice, totalItems, clearCart } = useCart();
-  const { placeOrder } = useOrders();
+  const { placeOrder, initiateRazorpayPayment, verifyAndCreateOrder } = useOrders();
   const { addresses, createAddress, updateAddress, loading: addressesLoading } = useAddresses();
   const router = useRouter();
 
@@ -130,23 +149,109 @@ export default function CheckoutPage() {
     setIsPlacingOrder(true);
 
     try {
-      const paymentMethod = selectedPayment === 'upi' ? 'UPI' : selectedPayment === 'card' ? 'CREDIT_CARD' : 'COD';
-      const result = await placeOrder({
-        addressId: selectedAddressId,
-        paymentMethod,
-      });
+      if (selectedPayment === 'cod') {
+        const result = await placeOrder({
+          addressId: selectedAddressId,
+          paymentMethod: 'COD',
+        });
 
-      if (result.data?.createOrder) {
-        // Clear the cart after successful order
-        await clearCart();
-
-        setPlacedOrderNumber(result.data.createOrder.orderNumber);
-        setStep(4);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (result.data?.createOrder) {
+          await clearCart();
+          setPlacedOrderNumber(result.data.createOrder.orderNumber);
+          setStep(4);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return;
       }
-    } catch (err) {
+
+      // Load Razorpay Script
+      const scriptLoaded = await loadRazorpayScript();
+      if (!scriptLoaded) {
+        alert('Razorpay SDK failed to load. Are you online?');
+        setIsPlacingOrder(false);
+        return;
+      }
+
+      // Initiate order creation on backend/Razorpay
+      const paymentInitiation = await initiateRazorpayPayment(selectedAddressId);
+      const rzpOrder = paymentInitiation.data?.initiateRazorpayPayment;
+
+      if (!rzpOrder) {
+        throw new Error('Failed to initiate transaction with payment gateway.');
+      }
+
+      // Handle Mock/Simulation Mode (if keys are not set yet)
+      if (rzpOrder.id.startsWith('order_mock_')) {
+        alert('Razorpay credentials not fully set up in .env. Completing in SIMULATION MODE.');
+        const result = await verifyAndCreateOrder({
+          addressId: selectedAddressId,
+          paymentMethod: selectedPayment === 'upi' ? 'UPI' : 'CREDIT_CARD',
+          razorpayOrderId: rzpOrder.id,
+          razorpayPaymentId: `pay_mock_${Math.random().toString(36).substr(2, 9)}`,
+          razorpaySignature: 'mock_signature',
+        });
+
+        if (result.data?.verifyAndCreateOrder) {
+          await clearCart();
+          setPlacedOrderNumber(result.data.verifyAndCreateOrder.orderNumber);
+          setStep(4);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        return;
+      }
+
+      // Trigger standard Razorpay Modal
+      const options = {
+        key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+        amount: rzpOrder.amount * 100, // paise
+        currency: rzpOrder.currency,
+        name: 'Cartizo',
+        description: 'Secure Order Acquisition',
+        order_id: rzpOrder.id,
+        handler: async function (response: any) {
+          try {
+            setIsPlacingOrder(true);
+            const result = await verifyAndCreateOrder({
+              addressId: selectedAddressId,
+              paymentMethod: selectedPayment === 'upi' ? 'UPI' : 'CREDIT_CARD',
+              razorpayOrderId: response.razorpay_order_id,
+              razorpayPaymentId: response.razorpay_payment_id,
+              razorpaySignature: response.razorpay_signature,
+            });
+
+            if (result.data?.verifyAndCreateOrder) {
+              await clearCart();
+              setPlacedOrderNumber(result.data.verifyAndCreateOrder.orderNumber);
+              setStep(4);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          } catch (verifyErr) {
+            console.error('Error verifying Razorpay payment signature:', verifyErr);
+            alert('Payment verification failed. Please try again or contact support.');
+          } finally {
+            setIsPlacingOrder(false);
+          }
+        },
+        prefill: {
+          name: user?.name || '',
+          email: user?.email || '',
+        },
+        theme: {
+          color: '#0f172a', // Matches our dark premium aesthetic
+        },
+        modal: {
+          ondismiss: function () {
+            setIsPlacingOrder(false);
+          }
+        }
+      };
+
+      const paymentObject = new (window as any).Razorpay(options);
+      paymentObject.open();
+
+    } catch (err: any) {
       console.error('Error placing order:', err);
-      alert('Failed to place order. Please try again.');
+      alert(err.message || 'Failed to place order. Please try again.');
     } finally {
       setIsPlacingOrder(false);
     }

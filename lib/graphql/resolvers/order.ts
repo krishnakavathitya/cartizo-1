@@ -1,5 +1,7 @@
 import { GraphQLContext, requireAuth } from '../context';
 import { getDatabase } from '@/lib/db';
+import Razorpay from 'razorpay';
+import crypto from 'crypto';
 
 const db = getDatabase();
 
@@ -95,6 +97,164 @@ export const orderResolvers = {
         status: 'PENDING',
         paymentMethod: input.paymentMethod,
         shippingAddressId: input.addressId,
+      });
+
+      // Clear the user's cart
+      await db.carts.clear(user.id);
+
+      return newOrder;
+    },
+
+    initiateRazorpayPayment: async (
+      _: any,
+      { addressId }: { addressId: string },
+      context: GraphQLContext
+    ) => {
+      const user = requireAuth(context);
+
+      const cart = await db.carts.get(user.id);
+      if (!cart || cart.items.length === 0) {
+        throw new Error('Cart is empty');
+      }
+
+      const address = await db.addresses.getById(addressId);
+      if (!address || address.userId !== user.id) {
+        throw new Error('Invalid or unauthorized shipping address');
+      }
+
+      const itemsWithProducts = await Promise.all(cart.items.map(async (item: any) => ({
+        ...item,
+        product: await db.products.getById(item.productId)
+      })));
+
+      const subtotal = itemsWithProducts.reduce((sum: number, item: any) => {
+        const product = item.product;
+        if (!product) return sum;
+        const price = product.price * (1 - (product.discount || 0) / 100);
+        return sum + (price * item.quantity);
+      }, 0);
+
+      const tax = subtotal * 0.1;
+      const shipping = subtotal > 1000 ? 0 : 50;
+      const total = subtotal + tax + shipping;
+      const amountInPaise = Math.round(total * 100);
+
+      const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+      const keySecret = process.env.RAZORPAY_KEY_SECRET;
+
+      if (!keyId || !keySecret || keyId.includes('YOUR_KEY') || keySecret.includes('YOUR_KEY')) {
+        console.warn('[Razorpay Simulation] Creating mock order because keys are not configured.');
+        return {
+          id: `order_mock_${Math.random().toString(36).substr(2, 9)}`,
+          amount: total,
+          currency: 'INR'
+        };
+      }
+
+      try {
+        const razorpay = new Razorpay({
+          key_id: keyId,
+          key_secret: keySecret,
+        });
+
+        const rzpOrder = await razorpay.orders.create({
+          amount: amountInPaise,
+          currency: 'INR',
+          receipt: `receipt_${Date.now()}`,
+          notes: {
+            userId: user.id.toString(),
+            addressId: addressId
+          }
+        });
+
+        return {
+          id: rzpOrder.id,
+          amount: Number(rzpOrder.amount) / 100,
+          currency: rzpOrder.currency
+        };
+      } catch (error: any) {
+        console.error('Razorpay Order Creation Error:', error);
+        throw new Error(error.message || 'Failed to initiate Razorpay payment');
+      }
+    },
+
+    verifyAndCreateOrder: async (
+      _: any,
+      args: {
+        addressId: string;
+        paymentMethod: string;
+        razorpayOrderId: string;
+        razorpayPaymentId: string;
+        razorpaySignature: string;
+      },
+      context: GraphQLContext
+    ) => {
+      const user = requireAuth(context);
+
+      const keySecret = process.env.RAZORPAY_KEY_SECRET;
+      const isMockPayment = args.razorpayOrderId.startsWith('order_mock_');
+
+      if (!isMockPayment) {
+        if (!keySecret || keySecret.includes('YOUR_KEY')) {
+          throw new Error('Payment verification failed: Razorpay Key Secret is not configured');
+        }
+        
+        const hmac = crypto.createHmac('sha256', keySecret);
+        hmac.update(`${args.razorpayOrderId}|${args.razorpayPaymentId}`);
+        const generatedSignature = hmac.digest('hex');
+
+        if (generatedSignature !== args.razorpaySignature) {
+          throw new Error('Payment verification failed: Signature mismatch');
+        }
+      } else {
+        console.log('[Razorpay Simulation] Verifying mock payment: signature check bypassed');
+      }
+
+      const cart = await db.carts.get(user.id);
+      if (!cart || cart.items.length === 0) {
+        throw new Error('Cart is empty');
+      }
+
+      const address = await db.addresses.getById(args.addressId);
+      if (!address || address.userId !== user.id) {
+        throw new Error('Invalid or unauthorized shipping address');
+      }
+
+      const itemsWithProducts = await Promise.all(cart.items.map(async (item: any) => ({
+        ...item,
+        product: await db.products.getById(item.productId)
+      })));
+
+      const subtotal = itemsWithProducts.reduce((sum: number, item: any) => {
+        const product = item.product;
+        if (!product) return sum;
+        const price = product.price * (1 - (product.discount || 0) / 100);
+        return sum + (price * item.quantity);
+      }, 0);
+
+      const tax = subtotal * 0.1;
+      const shipping = subtotal > 1000 ? 0 : 50;
+      const total = subtotal + tax + shipping;
+
+      const orderNumber = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 6).toUpperCase()}`;
+
+      const newOrder = await db.orders.create(user.id, {
+        orderNumber,
+        items: itemsWithProducts.map((item: any) => ({
+          id: `item-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+          productId: item.productId,
+          quantity: item.quantity,
+          price: (item.product.price || 0) * (1 - (item.product.discount || 0) / 100),
+          title: item.product.name,
+          image: item.product.image || ''
+        })),
+        subtotal,
+        tax,
+        shipping,
+        total,
+        status: 'PROCESSING',
+        paymentMethod: args.paymentMethod,
+        shippingAddressId: args.addressId,
       });
 
       // Clear the user's cart

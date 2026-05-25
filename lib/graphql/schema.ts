@@ -102,6 +102,12 @@ export const typeDefs = gql`
     createdAt: String!
   }
 
+  type RazorpayOrder {
+    id: String!
+    amount: Float!
+    currency: String!
+  }
+
   enum OrderStatus {
     PENDING
     PROCESSING
@@ -362,6 +368,14 @@ export const typeDefs = gql`
     
     # Checkout
     createOrder(input: CreateOrderInput!): Order!
+    initiateRazorpayPayment(addressId: ID!): RazorpayOrder!
+    verifyAndCreateOrder(
+      addressId: ID!
+      paymentMethod: PaymentMethod!
+      razorpayOrderId: String!
+      razorpayPaymentId: String!
+      razorpaySignature: String!
+    ): Order!
     
     # Orders
     cancelOrder(orderId: ID!): Order!
