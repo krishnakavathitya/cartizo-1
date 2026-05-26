@@ -38,26 +38,9 @@ export default function CheckoutPage() {
   const [showAddressForm, setShowAddressForm] = useState(false);
   const [editingAddress, setEditingAddress] = useState<Address | null>(null);
   const [selectedAddressId, setSelectedAddressId] = useState<string>('');
-  const [selectedPayment, setSelectedPayment] = useState<'upi' | 'card' | 'cod'>('upi');
+  const [selectedPayment, setSelectedPayment] = useState<'online' | 'cod'>('online');
   const [placedOrderNumber, setPlacedOrderNumber] = useState<string>('');
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
-
-  // Payment form validation state
-  const [upiIdentifier, setUpiIdentifier] = useState('');
-  const [upiError, setUpiError] = useState('');
-  
-  const [cardData, setCardData] = useState({
-    number: '',
-    name: '',
-    expiry: '',
-    cvv: ''
-  });
-  const [cardErrors, setCardErrors] = useState({
-    number: '',
-    name: '',
-    expiry: '',
-    cvv: ''
-  });
 
   // Set initial selected address
   useEffect(() => {
@@ -185,7 +168,7 @@ export default function CheckoutPage() {
         alert('Razorpay credentials not fully set up in .env. Completing in SIMULATION MODE.');
         const result = await verifyAndCreateOrder({
           addressId: selectedAddressId,
-          paymentMethod: selectedPayment === 'upi' ? 'UPI' : 'CREDIT_CARD',
+          paymentMethod: 'UPI',
           razorpayOrderId: rzpOrder.id,
           razorpayPaymentId: `pay_mock_${Math.random().toString(36).substr(2, 9)}`,
           razorpaySignature: 'mock_signature',
@@ -213,7 +196,7 @@ export default function CheckoutPage() {
             setIsPlacingOrder(true);
             const result = await verifyAndCreateOrder({
               addressId: selectedAddressId,
-              paymentMethod: selectedPayment === 'upi' ? 'UPI' : 'CREDIT_CARD',
+              paymentMethod: 'UPI',
               razorpayOrderId: response.razorpay_order_id,
               razorpayPaymentId: response.razorpay_payment_id,
               razorpaySignature: response.razorpay_signature,
@@ -257,74 +240,6 @@ export default function CheckoutPage() {
     }
   };
 
-  // UPI Validation
-  const validateUPI = () => {
-    let isValid = true;
-    const newErrors = { upi: '' };
-
-    if (!upiIdentifier.trim()) {
-      newErrors.upi = 'Digital Identifier is required';
-      isValid = false;
-    } else if (upiIdentifier.trim().length < 3) {
-      newErrors.upi = 'Please enter a valid identifier';
-      isValid = false;
-    }
-
-    setUpiError(newErrors.upi);
-    return isValid;
-  };
-
-  // Card Validation
-  const validateCard = () => {
-    const newErrors = { number: '', name: '', expiry: '', cvv: '' };
-    let isValid = true;
-
-    if (!cardData.number.trim()) {
-      newErrors.number = 'Card number is required';
-      isValid = false;
-    } else if (cardData.number.replace(/\s/g, '').length !== 16) {
-      newErrors.number = 'Card number must be 16 digits';
-      isValid = false;
-    }
-
-    if (!cardData.name.trim()) {
-      newErrors.name = 'Cardholder name is required';
-      isValid = false;
-    }
-
-    if (!cardData.expiry.trim()) {
-      newErrors.expiry = 'Expiry date is required';
-      isValid = false;
-    } else if (!/^\d{2}\/\d{2}$/.test(cardData.expiry)) {
-      newErrors.expiry = 'Format: MM/YY';
-      isValid = false;
-    }
-
-    if (!cardData.cvv.trim()) {
-      newErrors.cvv = 'CVV is required';
-      isValid = false;
-    } else if (cardData.cvv.length !== 3) {
-      newErrors.cvv = 'CVV must be 3 digits';
-      isValid = false;
-    }
-
-    setCardErrors(newErrors);
-    return isValid;
-  };
-
-  const handleUPIVerify = () => {
-    if (validateUPI()) {
-      setStep(3);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
-  const handleCardVerify = () => {
-    if (validateCard()) {
-      setStep(3);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
 
   if (!user) {
     return (
@@ -603,7 +518,7 @@ export default function CheckoutPage() {
                           onClick={() => {
                             setShowAddressForm(false);
                             setEditingAddress(null);
-                          setFormData({ name: user?.name || '', phone: '', street: '', city: '', state: '', postalCode: '', country: '', type: 'Home' });
+                            setFormData({ name: user?.name || '', phone: '', street: '', city: '', state: '', postalCode: '', country: '', type: 'Home' });
                           }}
                           className="flex-1 bg-white border border-gray-200 text-slate-600 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-gray-50 transition-all"
                         >
@@ -652,11 +567,10 @@ export default function CheckoutPage() {
                 </div>
 
                 {/* Payment Options */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
-                    { id: 'upi', label: 'Digital Transfer', sub: 'Unified Payments', icon: Wallet },
-                    { id: 'card', label: 'Credit Control', sub: 'Instant Clearance', icon: CreditCard },
-                    { id: 'cod', label: 'Liquid Asset', sub: 'Upon Reception', icon: Banknote },
+                    { id: 'online', label: 'Online Payment', sub: 'Secure Gateway', icon: CreditCard },
+                    { id: 'cod', label: 'Liquid Option', sub: 'Upon Reception', icon: Banknote },
                   ].map((p) => (
                     <div
                       key={p.id}
@@ -685,164 +599,31 @@ export default function CheckoutPage() {
 
                 {/* Specific Payment Forms */}
                 <div className="mt-8">
-                  {selectedPayment === 'upi' && (
+                  {selectedPayment === 'online' && (
                     <div className="border-2 border-indigo-600 rounded-[3rem] p-10 bg-white animate-in zoom-in duration-300">
-                      <h3 className="text-2xl font-display font-black text-slate-900 mb-2">Protocol Identification</h3>
-                      <p className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-8">Establish secure digital handshake</p>
-
-                      <div className="space-y-6">
-                        <div className="space-y-2">
-                          <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Digital Identifier *</label>
-                          <input
-                            type="text"
-                            placeholder="identifier@handshake"
-                            value={upiIdentifier}
-                            onChange={(e) => {
-                              setUpiIdentifier(e.target.value);
-                              if (upiError) setUpiError(''); // Clear error on input change
-                            }}
-                            className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-50 transition-all outline-none font-medium text-slate-900 ${
-                              upiError 
-                                ? 'border-red-500 focus:border-red-500' 
-                                : 'border-gray-100 focus:border-indigo-500'
-                            }`}
-                          />
-                          {upiError && (
-                            <p className="text-xs font-bold text-red-600 uppercase tracking-tighter mt-2 ml-1 flex items-center gap-1">
-                              <span>⚠</span> {upiError}
-                            </p>
-                          )}
-                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter mt-2 ml-1">Supported: GPay, PhonePe, Paytm, BHIM</p>
+                      <div className="flex items-start gap-6">
+                        <div className="w-16 h-16 rounded-[1.5rem] bg-indigo-50 flex items-center justify-center shrink-0">
+                          <CreditCard className="w-8 h-8 text-indigo-600" />
                         </div>
-                        <button
-                          onClick={handleUPIVerify}
-                          className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-indigo-600 transition-all shadow-xl active:scale-95"
-                        >
-                          Verify & Proceed
-                        </button>
+                        <div>
+                          <h3 className="text-2xl font-display font-black text-slate-900 mb-2">Secure Online Payment</h3>
+                          <p className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-6">Powered by Razorpay</p>
+                          <div className="space-y-4 max-w-md">
+                            <p className="text-sm font-medium text-slate-600 leading-relaxed">
+                              Proceed to review your order. You will be redirected to our secure payment gateway to complete your transaction using Cards, UPI, or Netbanking.
+                            </p>
+                            <button
+                              onClick={() => {
+                                setStep(3);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                              className="inline-flex bg-slate-900 text-white px-10 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-xl active:scale-95 mt-4"
+                            >
+                              Verify & Proceed
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  )}
-
-                  {selectedPayment === 'card' && (
-                    <div className="border-2 border-indigo-600 rounded-[3rem] p-10 bg-white animate-in zoom-in duration-300">
-                      <h3 className="text-2xl font-display font-black text-slate-900 mb-2">Asset Encryption</h3>
-                      <p className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-8">End-to-end encrypted clearance</p>
-
-                      <form className="space-y-6" autoComplete="off">
-                        <div className="space-y-2">
-                          <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Universal Asset Number *</label>
-                          <input
-                            type="text"
-                            placeholder="0000 0000 0000 0000"
-                            maxLength={19}
-                            autoComplete="off"
-                            value={cardData.number}
-                            onChange={(e) => {
-                              setCardData({ ...cardData, number: e.target.value });
-                              if (cardErrors.number) setCardErrors({ ...cardErrors, number: '' });
-                            }}
-                            className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-50 transition-all outline-none font-medium text-slate-900 tracking-widest ${
-                              cardErrors.number 
-                                ? 'border-red-500 focus:border-red-500' 
-                                : 'border-gray-100 focus:border-indigo-500'
-                            }`}
-                          />
-                          {cardErrors.number && (
-                            <p className="text-xs font-bold text-red-600 uppercase tracking-tighter mt-1 ml-1 flex items-center gap-1">
-                              <span>⚠</span> {cardErrors.number}
-                            </p>
-                          )}
-                        </div>
-
-                        <div className="space-y-2">
-                          <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Authorized Holder *</label>
-                          <input
-                            type="text"
-                            placeholder="Full name as registered"
-                            autoComplete="off"
-                            value={cardData.name}
-                            onChange={(e) => {
-                              setCardData({ ...cardData, name: e.target.value });
-                              if (cardErrors.name) setCardErrors({ ...cardErrors, name: '' });
-                            }}
-                            className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-50 transition-all outline-none font-medium text-slate-900 uppercase ${
-                              cardErrors.name 
-                                ? 'border-red-500 focus:border-red-500' 
-                                : 'border-gray-100 focus:border-indigo-500'
-                            }`}
-                          />
-                          {cardErrors.name && (
-                            <p className="text-xs font-bold text-red-600 uppercase tracking-tighter mt-1 ml-1 flex items-center gap-1">
-                              <span>⚠</span> {cardErrors.name}
-                            </p>
-                          )}
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-6">
-                          <div className="space-y-2">
-                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Temporal Expiration *</label>
-                            <input
-                              type="text"
-                              placeholder="MM/YY"
-                              maxLength={5}
-                              autoComplete="off"
-                              value={cardData.expiry}
-                              onChange={(e) => {
-                                setCardData({ ...cardData, expiry: e.target.value });
-                                if (cardErrors.expiry) setCardErrors({ ...cardErrors, expiry: '' });
-                              }}
-                              className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-50 transition-all outline-none font-medium text-slate-900 text-center ${
-                                cardErrors.expiry 
-                                  ? 'border-red-500 focus:border-red-500' 
-                                  : 'border-gray-100 focus:border-indigo-500'
-                              }`}
-                            />
-                            {cardErrors.expiry && (
-                              <p className="text-xs font-bold text-red-600 uppercase tracking-tighter mt-1 ml-1 flex items-center gap-1">
-                                <span>⚠</span> {cardErrors.expiry}
-                              </p>
-                            )}
-                          </div>
-                          <div className="space-y-2">
-                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Verification Key *</label>
-                            <input
-                              type="password"
-                              placeholder="CVV"
-                              maxLength={3}
-                              autoComplete="new-password"
-                              value={cardData.cvv}
-                              onChange={(e) => {
-                                setCardData({ ...cardData, cvv: e.target.value });
-                                if (cardErrors.cvv) setCardErrors({ ...cardErrors, cvv: '' });
-                              }}
-                              className={`w-full px-6 py-4 bg-gray-50 border rounded-2xl focus:bg-white focus:ring-4 focus:ring-indigo-50 transition-all outline-none font-medium text-slate-900 text-center ${
-                                cardErrors.cvv 
-                                  ? 'border-red-500 focus:border-red-500' 
-                                  : 'border-gray-100 focus:border-indigo-500'
-                              }`}
-                            />
-                            {cardErrors.cvv && (
-                              <p className="text-xs font-bold text-red-600 uppercase tracking-tighter mt-1 ml-1 flex items-center gap-1">
-                                <span>⚠</span> {cardErrors.cvv}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="bg-slate-900/5 rounded-2xl p-4 flex items-center gap-3">
-                          <ShieldCheck className="w-5 h-5 text-indigo-600" />
-                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">PCI-DSS Compliant Infrastructure Verified</p>
-                        </div>
-
-                        <button
-                          type="button"
-                          onClick={handleCardVerify}
-                          className="w-full bg-slate-900 text-white py-3 sm:py-5 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] hover:bg-indigo-600 transition-all shadow-xl active:scale-95"
-                        >
-                          Authorize Transaction
-                        </button>
-                      </form>
                     </div>
                   )}
 
@@ -912,13 +693,12 @@ export default function CheckoutPage() {
                     <p className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-4">Settlement Protocol</p>
                     <div className="flex gap-4">
                       <div className="w-10 h-10 rounded-xl bg-white border border-gray-100 flex items-center justify-center shrink-0">
-                        {selectedPayment === 'upi' && <Wallet className="w-5 h-5 text-indigo-600" />}
-                        {selectedPayment === 'card' && <CreditCard className="w-5 h-5 text-indigo-600" />}
+                        {selectedPayment === 'online' && <CreditCard className="w-5 h-5 text-indigo-600" />}
                         {selectedPayment === 'cod' && <Banknote className="w-5 h-5 text-indigo-600" />}
                       </div>
                       <div>
                         <p className="font-black text-slate-900 mb-1 uppercase tracking-tight">
-                          {selectedPayment === 'upi' ? 'Unified Payments Interface' : selectedPayment === 'card' ? 'Universal Credit Asset' : 'Physical Cash Settlement'}
+                          {selectedPayment === 'online' ? 'Online Payment (Razorpay)' : 'Physical Cash Settlement'}
                         </p>
                         <p className="text-sm font-medium text-slate-600">Verification complete. Authorization pending final manual trigger.</p>
                       </div>
@@ -1016,8 +796,8 @@ export default function CheckoutPage() {
 
                 {placedOrderNumber && (
                   <div className="bg-emerald-50 border border-emerald-200 rounded-2xl px-8 py-4 mb-10">
-                    <p className="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-1">Order Number</p>
-                    <p className="text-2xl font-black text-emerald-700 tracking-tight">{placedOrderNumber}</p>
+                    <p className="text-[10px]  sm:text-xsfont-black text-emerald-600 uppercase tracking-widest mb-1">Order Number</p>
+                    <p className="text-base sm:text-2xl font-black text-emerald-700 tracking-tight break-all">{placedOrderNumber}</p>
                   </div>
                 )}
 

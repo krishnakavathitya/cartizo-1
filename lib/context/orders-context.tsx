@@ -87,6 +87,18 @@ const GET_ORDERS = gql`
         createdAt
         note
       }
+      payment {
+        id
+        userName
+        email
+        razorpayOrderId
+        razorpayPaymentId
+        amount
+        currency
+        method
+        status
+        createdAt
+      }
       items {
         id
         product {

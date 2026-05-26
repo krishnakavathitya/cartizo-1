@@ -18,6 +18,9 @@ export async function createContext(): Promise<GraphQLContext> {
     const jwtUser = await getCurrentUser();
 
     if (jwtUser) {
+      // Fetch full user from DB to get phone
+      const db = getDatabase();
+      const fullUser = await db.users.getById(jwtUser.userId);
       return {
         user: {
           id: jwtUser.userId,

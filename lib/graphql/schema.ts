@@ -99,7 +99,31 @@ export const typeDefs = gql`
     paymentMethod: PaymentMethod!
     trackingNumber: String
     statusHistory: [OrderStatusChange!]!
+    payment: Payment
     createdAt: String!
+  }
+
+  type Payment {
+    id: ID!
+    orderId: String!
+    userId: Int!
+    userName: String
+    email: String
+    razorpayOrderId: String
+    razorpayPaymentId: String
+    razorpaySignature: String
+    amount: Float!
+    currency: String!
+    method: String!
+    status: PaymentStatus!
+    createdAt: String!
+  }
+
+  enum PaymentStatus {
+    SUCCESS
+    FAILED
+    PENDING
+    REFUNDED
   }
 
   type RazorpayOrder {
@@ -349,6 +373,10 @@ export const typeDefs = gql`
     
     # Public tracking
     trackOrder(orderNumber: String!): Order
+
+    # Payments
+    payment(orderId: ID!): Payment
+    myPayments: [Payment!]!
   }
 
   type Mutation {

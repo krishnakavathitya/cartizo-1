@@ -37,6 +37,20 @@ export const orderResolvers = {
 
       return order;
     },
+
+    payment: async (_: any, { orderId }: { orderId: string }, context: GraphQLContext) => {
+      const user = requireAuth(context);
+      const order = await db.orders.getById(user.id, orderId);
+      if (!order) {
+        throw new Error('Order not found or unauthorized');
+      }
+      return await db.payments.getByOrderId(orderId);
+    },
+
+    myPayments: async (_: any, __: any, context: GraphQLContext) => {
+      const user = requireAuth(context);
+      return await db.payments.getByUserId(user.id);
+    },
   },
 
   Mutation: {
@@ -101,6 +115,21 @@ export const orderResolvers = {
 
       // Clear the user's cart
       await db.carts.clear(user.id);
+
+      // Store COD payment record (no webhook needed)
+      await db.payments.create({
+        orderId: newOrder.id,
+        userId: user.id,
+        userName: user.name,
+        email: user.email,
+        razorpayOrderId: null,
+        razorpayPaymentId: null,
+        razorpaySignature: null,
+        amount: total,
+        currency: 'INR',
+        method: 'COD',
+        status: 'PENDING',
+      });
 
       return newOrder;
     },
@@ -198,7 +227,7 @@ export const orderResolvers = {
         if (!keySecret || keySecret.includes('YOUR_KEY')) {
           throw new Error('Payment verification failed: Razorpay Key Secret is not configured');
         }
-        
+
         const hmac = crypto.createHmac('sha256', keySecret);
         hmac.update(`${args.razorpayOrderId}|${args.razorpayPaymentId}`);
         const generatedSignature = hmac.digest('hex');
@@ -260,6 +289,21 @@ export const orderResolvers = {
       // Clear the user's cart
       await db.carts.clear(user.id);
 
+      // Store Razorpay payment response directly (no webhook needed)
+      await db.payments.create({
+        orderId: newOrder.id,
+        userId: user.id,
+        userName: user.name,
+        email: user.email,
+        razorpayOrderId: args.razorpayOrderId,
+        razorpayPaymentId: args.razorpayPaymentId,
+        razorpaySignature: args.razorpaySignature,
+        amount: total,
+        currency: 'INR',
+        method: args.paymentMethod,
+        status: 'SUCCESS',
+      });
+
       return newOrder;
     },
 
@@ -280,6 +324,9 @@ export const orderResolvers = {
   },
 
   Order: {
+    payment: async (order: any) => {
+      return await db.payments.getByOrderId(order.id);
+    },
     shippingAddress: async (order: any) => {
       const address = await db.addresses.getById(order.shippingAddressId);
       if (!address) {

@@ -6,6 +6,38 @@ export const pool = new Pool({
   max: 3, // Limit connection pool size to prevent exhausting DB connections in hot-reload/serverless environments
 });
 
+// Auto-create payments table if it doesn't exist (no separate migration needed)
+let paymentsTableReady = false;
+async function ensurePaymentsTable() {
+  if (paymentsTableReady) return;
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS payments (
+        "id" TEXT PRIMARY KEY,
+        "orderId" TEXT REFERENCES orders(id) ON DELETE CASCADE,
+        "userId" INTEGER REFERENCES users(id) ON DELETE CASCADE,
+        "userName" TEXT,
+        "email" TEXT,
+        "razorpayOrderId" TEXT,
+        "razorpayPaymentId" TEXT,
+        "razorpaySignature" TEXT,
+        "amount" DECIMAL NOT NULL,
+        "currency" TEXT DEFAULT 'INR',
+        "method" TEXT NOT NULL,
+        "status" TEXT NOT NULL DEFAULT 'SUCCESS',
+        "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+    // Add columns if table already existed without them
+    await pool.query('ALTER TABLE payments ADD COLUMN IF NOT EXISTS "userName" TEXT').catch(() => {});
+    await pool.query('ALTER TABLE payments ADD COLUMN IF NOT EXISTS "email" TEXT').catch(() => {});
+    paymentsTableReady = true;
+  } catch (err) {
+    console.error('Failed to initialize payments table:', err);
+  }
+}
+ensurePaymentsTable();
+
 export const getDatabase = () => {
   return {
     users: {
@@ -337,6 +369,48 @@ export const getDatabase = () => {
         for (const name of categories) {
           await pool.query('INSERT INTO categories ("name") VALUES ($1)', [name]);
         }
+      }
+    },
+    payments: {
+      create: async (payment: any) => {
+        const id = payment.id || `pay-${Date.now()}`;
+        await pool.query(
+          'INSERT INTO payments ("id", "orderId", "userId", "userName", "email", "razorpayOrderId", "razorpayPaymentId", "razorpaySignature", "amount", "currency", "method", "status", "createdAt") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)',
+          [
+            id,
+            payment.orderId,
+            payment.userId,
+            payment.userName || null,
+            payment.email || null,
+            payment.razorpayOrderId || null,
+            payment.razorpayPaymentId || null,
+            payment.razorpaySignature || null,
+            payment.amount,
+            payment.currency || 'INR',
+            payment.method,
+            payment.status || 'SUCCESS',
+            new Date().toISOString()
+          ]
+        );
+        const result = await pool.query('SELECT * FROM payments WHERE "id" = $1', [id]);
+        return result.rows[0];
+      },
+      getByOrderId: async (orderId: string) => {
+        const result = await pool.query('SELECT * FROM payments WHERE "orderId" = $1', [orderId]);
+        return result.rows[0] || null;
+      },
+      getByUserId: async (userId: number) => {
+        const result = await pool.query('SELECT * FROM payments WHERE "userId" = $1 ORDER BY "createdAt" DESC', [userId]);
+        return result.rows;
+      },
+      getAll: async () => {
+        const result = await pool.query('SELECT * FROM payments ORDER BY "createdAt" DESC');
+        return result.rows;
+      },
+      updateStatus: async (id: string, status: string) => {
+        await pool.query('UPDATE payments SET "status" = $1 WHERE "id" = $2', [status, id]);
+        const result = await pool.query('SELECT * FROM payments WHERE "id" = $1', [id]);
+        return result.rows[0];
       }
     }
   };
